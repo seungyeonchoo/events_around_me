@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import { Preview } from '@storybook/react';
 import '../src/styles/globals.css';
 
 // const OriginalNextImage = NextImage.default;
