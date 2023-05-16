@@ -1,12 +1,12 @@
 import { ButtonStyleProps } from '@/src/types';
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import getStyles from './getStyles';
 
-export interface ButtonProps extends ButtonStyleProps {
+type TButton = ButtonStyleProps & ComponentPropsWithoutRef<'button'>;
+export interface ButtonProps extends TButton {
   disabled?: boolean | undefined;
   children: ReactNode;
-  onClick?: () => void;
   link?: string | undefined;
 }
 
