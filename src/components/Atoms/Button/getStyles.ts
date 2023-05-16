@@ -6,6 +6,8 @@ const getColor = (color?: Colors) => {
       return 'text-default bg-primary hover:bg-primary_strong disabled:bg-primary_weak';
     case 'secondary':
       return 'text-default bg-secondary hover:bg-secondary_strong disabled:bg-secondary_weak';
+    case 'dark':
+      return 'text-default bg-dark hover:bg-dark_strong disabled:bg-dark_weak';
     default:
       return 'bg-default hover:bg-default_strong disabled:bg-default_weak text-dark';
   }

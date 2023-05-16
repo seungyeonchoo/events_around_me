@@ -1,4 +1,4 @@
-export type Colors = 'primary' | 'secondary' | undefined;
+export type Colors = 'primary' | 'secondary' | 'dark' | undefined;
 
 export type Sizes = 'xs' | 'sm' | 'lg' | 'xl' | 'full' | undefined;
 
@@ -9,12 +9,13 @@ export interface ButtonStyleProps {
   responsive?: boolean | undefined;
 }
 
-export type TextType = 'h1' | 'h2' | 'h3' | 'sub' | undefined;
+export type TagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div' | 'span';
 
-export type TextStrength = 'strong' | 'weak' | undefined;
-
+export type TextSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
 export interface TextStyleProps {
-  text_type: TextType;
   color?: Colors;
-  strength?: TextStrength;
+  bold?: boolean | undefined;
+  underline?: boolean;
+  italic?: boolean;
+  size?: TextSizes;
 }

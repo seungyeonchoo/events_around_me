@@ -4,14 +4,34 @@ import Text, { TextProps } from '.';
 export default {
   title: 'Atoms/Text',
   component: Text,
+  tags: ['autodocs'],
 } as Meta<typeof Text>;
 
 const Template: StoryFn<typeof Text> = (args: TextProps) => <Text {...args} />;
 
-export const Default = Template.bind({});
+export const Dark = Template.bind({});
 
-Default.args = {
-  children: 'Hello',
-  text_type: 'h1',
-  //   color: 'primary',
+Dark.args = {
+  children: 'default',
+  text_tag: 'h1',
+  color: 'dark',
+  size: 'md',
+};
+
+export const Primary = Template.bind({});
+
+Primary.args = {
+  children: 'primary',
+  text_tag: 'h1',
+  color: 'primary',
+  size: 'md',
+};
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  children: 'secondary',
+  text_tag: 'h1',
+  color: 'secondary',
+  size: 'md',
 };
