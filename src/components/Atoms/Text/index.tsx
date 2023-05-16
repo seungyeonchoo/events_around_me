@@ -7,22 +7,33 @@ export interface TextProps extends TextStyleProps {
   text_tag: TagType;
   children: ReactNode;
   link?: string;
+  extra_style?: string | undefined;
 }
 
-const Text = ({ children, color, bold, size, italic, text_tag, underline, ...rest }: TextProps) => {
+const Text = ({
+  children,
+  color,
+  bold,
+  size,
+  italic,
+  text_tag,
+  underline,
+  extra_style,
+  ...rest
+}: TextProps) => {
   const TAG = text_tag;
   const styles = getStyles({ color, bold, size, underline, italic });
 
   if (rest.link)
     return (
       <Link href={rest.link}>
-        <TAG className={`${styles} cursor-pointer`} {...rest}>
+        <TAG className={`${styles} ${extra_style} cursor-pointer`} {...rest}>
           {children}
         </TAG>
       </Link>
     );
   return (
-    <TAG className={styles} {...rest}>
+    <TAG className={`${styles} ${extra_style}`} {...rest}>
       {children}
     </TAG>
   );

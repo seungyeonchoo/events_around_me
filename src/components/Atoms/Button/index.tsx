@@ -8,20 +8,32 @@ export interface ButtonProps extends TButton {
   disabled?: boolean | undefined;
   children: ReactNode;
   link?: string | undefined;
+  extra_style?: string | undefined;
 }
 
-const Button = ({ children, color, rounded, responsive, size, link, ...rest }: ButtonProps) => {
+const Button = ({
+  children,
+  extra_style,
+  color,
+  rounded,
+  responsive,
+  size,
+  link,
+  ...rest
+}: ButtonProps) => {
+  const styles = getStyles({ color, size, rounded, responsive });
+
   if (link)
     return (
       <Link href={link}>
-        <button className={getStyles({ color, size, rounded, responsive })} {...rest}>
+        <button className={`${styles} ${extra_style}`} {...rest}>
           {children}
         </button>
       </Link>
     );
 
   return (
-    <button className={getStyles({ color, size, rounded, responsive })} {...rest}>
+    <button className={`${styles} ${extra_style}`} {...rest}>
       {children}
     </button>
   );
