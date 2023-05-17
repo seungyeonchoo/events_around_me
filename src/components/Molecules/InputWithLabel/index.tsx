@@ -20,6 +20,7 @@ const InputWithLabel = ({
   value,
   text_color,
   invalid_message,
+  input_size,
 }: InputWithLabelProps) => {
   return (
     <label className={`flex flex-col ${label_style}`}>
@@ -35,7 +36,7 @@ const InputWithLabel = ({
         rounded={rounded}
         responsive={responsive}
         border="dark"
-        input_size="2xl"
+        input_size={input_size}
         extra_style="peer my-2"
       />
       <Text
