@@ -13,7 +13,6 @@ const TitleWithDescription = ({
   title_color,
   text_color,
   description,
-  ...rest
 }: TitleWithDescriptionProps) => {
   return (
     <section className={`m-auto flex flex-col items-center justify-between`}>
