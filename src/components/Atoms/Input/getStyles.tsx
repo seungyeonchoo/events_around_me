@@ -4,6 +4,7 @@ const BORDER_COLOR = {
   primary: 'border border-primary',
   secondary: 'border border-secondary',
   dark: 'border border-dark',
+  default: 'border border-default',
 };
 
 const INPUT_SIZE = {
@@ -12,6 +13,7 @@ const INPUT_SIZE = {
   md: 'w-[8rem]',
   lg: 'w-[10rem]',
   xl: 'w-[15rem]',
+  '2xl': 'w-[20rem]',
   full: 'w-full',
 };
 

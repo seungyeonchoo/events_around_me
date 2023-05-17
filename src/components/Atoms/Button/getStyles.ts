@@ -4,6 +4,7 @@ const BUTTON_COLOR = {
   primary: 'text-default bg-primary hover:bg-primary_strong disabled:bg-primary_weak',
   secondary: 'text-default bg-secondary hover:bg-secondary_strong disabled:bg-secondary_weak',
   dark: 'text-default bg-dark hover:bg-dark_strong disabled:bg-dark_weak',
+  default: 'text-dark bg-default',
 };
 
 const BUTTON_SIZE = {
@@ -12,6 +13,7 @@ const BUTTON_SIZE = {
   md: 'w-[8rem]',
   lg: 'w-[10rem]',
   xl: 'w-[15rem]',
+  '2xl': 'w-[20rem]',
   full: 'w-full',
 };
 

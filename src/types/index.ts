@@ -1,6 +1,6 @@
-export type Colors = 'primary' | 'secondary' | 'dark' | undefined;
+export type Colors = 'primary' | 'secondary' | 'dark' | 'default' | undefined;
 
-export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
+export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 
 export type TagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div' | 'span';
 
@@ -18,7 +18,7 @@ export interface TextStyleProps {
   bold?: boolean | undefined;
   underline?: boolean;
   italic?: boolean;
-  size?: TextSizes;
+  size: TextSizes;
 }
 
 export interface InputStyleProps {
