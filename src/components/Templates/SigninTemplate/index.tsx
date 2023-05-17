@@ -1,3 +1,4 @@
+import React from 'react';
 import Button from '../../Atoms/Button';
 import InputWithLabel from '../../Molecules/InputWithLabel';
 import TextWithLink from '../../Molecules/TextWithLink';
@@ -7,7 +8,7 @@ export interface SigninTemplateProps {
   isValid: boolean;
   value: { email: string; password: string };
   onClick: () => void;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplateProps) => {
