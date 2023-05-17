@@ -13,4 +13,9 @@ const Template: StoryFn<typeof SigninTemplate> = (args: SigninTemplateProps) => 
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  isValid: true,
+  value: { email: '', password: '' },
+  onClick: () => console.log('click'),
+  onChange: () => console.log('change'),
+};

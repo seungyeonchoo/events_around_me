@@ -1,6 +1,7 @@
 import Button from '../../Atoms/Button';
 import InputWithLabel from '../../Molecules/InputWithLabel';
 import TextWithLink from '../../Molecules/TextWithLink';
+import TitleWithDescription from '../../Molecules/TitleWithDescription';
 
 export interface SigninTemplateProps {
   isValid: boolean;
@@ -11,7 +12,13 @@ export interface SigninTemplateProps {
 
 const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplateProps) => {
   return (
-    <section>
+    <section className="sm:flex sm:flex-col sm:items-center max-sm:px-0 max-sm:border-none max-sm:m-0 py-10 px-5 sm:justify-between border border-primary w-[30rem] max-sm:w-full rounded-3xl shadow-md max-sm:shadow-none">
+      <TitleWithDescription
+        title_text="SIGN IN"
+        description="Please enter email and password to sign in"
+        text_color="secondary"
+        title_color="primary"
+      />
       <InputWithLabel
         label="email"
         type="email"

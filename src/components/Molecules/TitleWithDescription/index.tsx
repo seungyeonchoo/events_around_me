@@ -1,7 +1,6 @@
 import Text from '../../Atoms/Text';
 
 export interface TitleWithDescriptionProps {
-  direction: 'col' | 'row';
   title_text: string;
   description: string;
   title_color: 'primary' | 'default' | 'secondary' | 'dark';
@@ -15,11 +14,11 @@ const TitleWithDescription = ({
   description,
 }: TitleWithDescriptionProps) => {
   return (
-    <section className={`m-auto flex flex-col items-center justify-between`}>
-      <Text text_tag="h1" size="4xl" color={title_color} bold extra_style="my-8">
+    <section className={`mb-10 w-[20rem] max-sm:w-full flex flex-col items-center justify-between`}>
+      <Text text_tag="h1" size="3xl" color={title_color} bold>
         {title_text}
       </Text>
-      <Text text_tag="p" size="sm" color={text_color}>
+      <Text text_tag="p" size="xs" color={text_color} extra_style="mt-8">
         {description}
       </Text>
     </section>

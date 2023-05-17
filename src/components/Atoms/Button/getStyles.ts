@@ -13,7 +13,7 @@ const BUTTON_SIZE = {
   md: 'w-[8rem]',
   lg: 'w-[10rem]',
   xl: 'w-[15rem]',
-  '2xl': 'w-[20rem]',
+  '2xl': 'w-[25rem]',
   full: 'w-full',
 };
 

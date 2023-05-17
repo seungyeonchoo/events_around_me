@@ -23,8 +23,8 @@ const InputWithLabel = ({
   input_size,
 }: InputWithLabelProps) => {
   return (
-    <label className={`flex flex-col ${label_style}`}>
-      <Text text_tag="span" size="sm" bold={true} color={text_color} extra_style="ml-3">
+    <label className={`flex flex-col my-2 ${label_style}`}>
+      <Text text_tag="span" size="xs" bold color={text_color} extra_style="ml-3">
         {label.split(' ').map(el => el[0].toUpperCase() + el.slice(1))}
       </Text>
       <Input
@@ -37,7 +37,7 @@ const InputWithLabel = ({
         responsive={responsive}
         border="dark"
         input_size={input_size}
-        extra_style="peer my-2"
+        extra_style="peer my-2 m-auto"
       />
       <Text
         text_tag="p"
