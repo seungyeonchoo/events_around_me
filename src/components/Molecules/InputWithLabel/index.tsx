@@ -21,10 +21,11 @@ const InputWithLabel = ({
   text_color,
   invalid_message,
   input_size,
+  isValid,
 }: InputWithLabelProps) => {
   return (
-    <label className={`flex flex-col my-2 ${label_style}`}>
-      <Text text_tag="span" size="xs" bold color={text_color} extra_style="ml-3">
+    <label className={`flex flex-col my-5 ${label_style}`}>
+      <Text text_tag="span" size="xs" bold color={text_color} extra_style="ml-8">
         {label.split(' ').map(el => el[0].toUpperCase() + el.slice(1))}
       </Text>
       <Input
@@ -38,12 +39,13 @@ const InputWithLabel = ({
         border="dark"
         input_size={input_size}
         extra_style="peer my-2 m-auto"
+        isValid={isValid}
       />
       <Text
         text_tag="p"
         size="xs"
         color="secondary"
-        extra_style="peer-invalid:visible invisible ml-3"
+        extra_style={`${!isValid && 'peer-focus:visible'} invisible ml-8`}
       >
         {invalid_message}
       </Text>

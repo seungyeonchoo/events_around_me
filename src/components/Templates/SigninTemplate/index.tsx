@@ -1,3 +1,4 @@
+import inputValidation from '@/src/lib/inputValidation';
 import React from 'react';
 import Button from '../../Atoms/Button';
 import InputWithLabel from '../../Molecules/InputWithLabel';
@@ -13,7 +14,7 @@ export interface SigninTemplateProps {
 
 const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplateProps) => {
   return (
-    <section className="sm:flex sm:flex-col sm:items-center max-sm:px-0 max-sm:border-none max-sm:m-0 py-10 px-5 sm:justify-between border border-primary w-[30rem] max-sm:w-full rounded-3xl shadow-md max-sm:shadow-none">
+    <section className="py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-md max-sm:w-full max-sm:shadow-none max-sm:px-0 max-sm:border-none">
       <TitleWithDescription
         title_text="SIGN IN"
         description="Please enter email and password to sign in"
@@ -31,6 +32,7 @@ const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplatePro
         responsive={true}
         placeholder="email@example.com"
         invalid_message="👀 invalid input"
+        isValid={inputValidation('email', value?.email)}
       />
       <InputWithLabel
         label="password"
@@ -46,11 +48,11 @@ const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplatePro
       />
       <Button
         onClick={onClick}
-        disabled={isValid}
+        disabled={!isValid}
         size="2xl"
         responsive={true}
         color="primary"
-        extra_style="my-4"
+        extra_style="my-10 mx-auto"
       >
         Sign In
       </Button>

@@ -1,8 +1,8 @@
 import SigninTemplate from '@/src/components/Templates/SigninTemplate';
-import React, { useState } from 'react';
+import useInput from '@/src/hooks/useInput';
 
 const SignIn = () => {
-  const [input, setInput] = useState({ email: '', password: '' });
+  const { input, handleInput } = useInput({ email: '', password: '' });
 
   return (
     <main className="flex justify-center items-center h-[100vh]">
@@ -10,12 +10,7 @@ const SignIn = () => {
         isValid={false}
         value={input}
         onClick={() => console.log('click')}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          console.log(e.target.value);
-          console.log(e.target.name);
-          setInput({ ...input, [e.target.name]: e.target.value });
-          console.log(input);
-        }}
+        onChange={handleInput}
       />
     </main>
   );

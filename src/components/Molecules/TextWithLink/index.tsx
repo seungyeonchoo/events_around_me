@@ -8,11 +8,19 @@ export interface TextWithLinkProps {
 
 const TextWithLink = ({ text, link, link_text }: TextWithLinkProps) => {
   return (
-    <div className="flex items-center justify-center w-[20rem] max-sm:w-full">
+    <div className="flex items-center justify-center w-[20rem] max-sm:w-full mx-auto">
       <Text text_tag="p" size="xs" color="dark" extra_style="mr-10">
         {text}
       </Text>
-      <Text text_tag="span" size="xs" color="primary" link={link} bold underline>
+      <Text
+        text_tag="span"
+        size="xs"
+        color="primary"
+        link={link}
+        extra_style="hover:text-primary_strong"
+        bold
+        underline
+      >
         {link_text}
       </Text>
     </div>

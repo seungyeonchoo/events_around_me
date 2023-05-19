@@ -14,7 +14,9 @@ const TitleWithDescription = ({
   description,
 }: TitleWithDescriptionProps) => {
   return (
-    <section className={`mb-10 w-[20rem] max-sm:w-full flex flex-col items-center justify-between`}>
+    <section
+      className={`mb-10 w-[20rem] mx-auto max-sm:w-full flex flex-col items-center justify-between`}
+    >
       <Text text_tag="h1" size="3xl" color={title_color} bold>
         {title_text}
       </Text>

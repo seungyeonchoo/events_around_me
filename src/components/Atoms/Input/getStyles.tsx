@@ -17,14 +17,16 @@ const INPUT_SIZE = {
   full: 'w-full',
 };
 
-const getStyles = ({ input_size, rounded, responsive, border }: InputStyleProps) => {
+const base_style = 'p-5 h-[2.5rem] text-dark text-xs outline-offset-2 focus:border-none';
+
+const getStyles = ({ input_size, rounded, responsive, border, isValid }: InputStyleProps) => {
   const size_style = INPUT_SIZE[input_size];
   const border_style = border ? BORDER_COLOR[border] : '';
-  const base_style = 'p-5 h-[2.5rem] text-dark text-sm outline-offset-2 focus:border-none';
   const isRounded = rounded ? 'rounded-full' : '';
-  const isResponsive = responsive ? 'max-sm:w-full' : '';
+  const isResponsive = responsive ? 'max-sm:w-[90%]' : '';
+  const invalid_style = isValid ? '' : 'focus:outline-secondary';
 
-  return `${base_style} ${size_style} ${isRounded} ${isResponsive} ${border_style}`;
+  return `${base_style} ${size_style} ${isRounded} ${isResponsive} ${border_style} ${invalid_style}`;
 };
 
 export default getStyles;

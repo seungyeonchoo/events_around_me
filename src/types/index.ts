@@ -26,4 +26,5 @@ export interface InputStyleProps {
   rounded?: boolean | undefined;
   responsive?: boolean | undefined;
   border?: Colors;
+  isValid?: boolean | undefined;
 }
