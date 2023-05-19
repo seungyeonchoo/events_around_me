@@ -1,15 +1,15 @@
 import { SignupInput } from '@/src/types';
 import { ChangeEvent } from 'react';
+import inputValidation from '../../../lib/inputValidation';
 import InputWithLabel from '../../Molecules/InputWithLabel';
 
 export interface NameInputProps {
   value: SignupInput;
   // eslint-disable-next-line no-unused-vars
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  isValid: boolean;
 }
 
-const NameInput = ({ value, onChange, isValid }: NameInputProps) => {
+const NameInput = ({ value, onChange }: NameInputProps) => {
   return (
     <div className="m-auto flex justify-between w-[25rem] max-sm:flex-col max-sm:w-full">
       <InputWithLabel
@@ -23,7 +23,7 @@ const NameInput = ({ value, onChange, isValid }: NameInputProps) => {
         responsive={true}
         placeholder="First Name"
         invalid_message="👀 please enter valid email"
-        isValid={isValid}
+        isValid={inputValidation('text', 'firstName', value?.firstName)}
       />
       <InputWithLabel
         label="last name"
@@ -36,7 +36,7 @@ const NameInput = ({ value, onChange, isValid }: NameInputProps) => {
         responsive={true}
         placeholder="Last Name"
         invalid_message="👀 please enter valid email"
-        isValid={isValid}
+        isValid={inputValidation('text', 'firstName', value?.lastName)}
       />
     </div>
   );

@@ -11,7 +11,12 @@ const inputValidation = (type: HTMLInputTypeAttribute, name: string, value: stri
     case 'password':
       return isValidPassword.test(value);
     default:
-      return true;
+      switch (name) {
+        case 'firstName' || 'lastName':
+          return value?.length > 0;
+        default:
+          return true;
+      }
   }
 };
 

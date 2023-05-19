@@ -8,16 +8,16 @@ const BUTTON_COLOR = {
 };
 
 const BUTTON_SIZE = {
-  xs: 'w-[3rem]',
-  sm: 'w-[5rem]',
-  md: 'w-[8rem]',
-  lg: 'w-[12.5rem]',
-  xl: 'w-[15rem]',
-  '2xl': 'w-[25rem]',
-  full: 'w-full',
+  xs: 'w-[2rem] h-[2rem] ',
+  sm: 'w-[5rem] h-[2.5rem] p-2 ',
+  md: 'w-[8rem] h-[2.5rem] p-2 ',
+  lg: 'w-[12.5rem] h-[2.5rem] p-2 ',
+  xl: 'w-[15rem] h-[2.5rem] p-2 ',
+  '2xl': 'w-[25rem] h-[2.5rem] p-2 ',
+  full: 'w-full h-[2.5rem] p-2 ',
 };
 
-const base_style = 'p-2 h-[2.5rem] font-bold text-sm';
+const base_style = 'font-bold text-sm';
 
 const getStyles = ({ color, size, rounded, responsive }: ButtonStyleProps) => {
   const default_color = 'bg-default hover:bg-default_strong disabled:bg-default_weak text-dark';

@@ -48,7 +48,7 @@ const InputWithLabel = ({
         text_tag="p"
         size="xs"
         color="secondary"
-        extra_style={`${!isValid && 'peer-focus:visible'} invisible ml-8`}
+        extra_style={`${!isValid && 'peer-focus:visible'} invisible`}
       >
         {invalid_message}
       </Text>
