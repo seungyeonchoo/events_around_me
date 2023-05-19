@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import SigninTemplate, { SigninTemplateProps } from '.';
 
 export default {
-  title: 'Template/Sign In',
+  title: 'TEMPLATES/Sign In',
   component: SigninTemplate,
   tags: ['autodocs'],
 } as Meta<typeof SigninTemplate>;

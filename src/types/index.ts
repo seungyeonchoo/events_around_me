@@ -28,3 +28,15 @@ export interface InputStyleProps {
   border?: Colors;
   isValid?: boolean | undefined;
 }
+
+export interface SigninInput {
+  email: string;
+  password: string;
+}
+
+export interface SignupInput {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+}

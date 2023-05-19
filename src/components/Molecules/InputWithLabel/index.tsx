@@ -24,9 +24,12 @@ const InputWithLabel = ({
   isValid,
 }: InputWithLabelProps) => {
   return (
-    <label className={`flex flex-col my-5 ${label_style}`}>
-      <Text text_tag="span" size="xs" bold color={text_color} extra_style="ml-8">
-        {label.split(' ').map(el => el[0].toUpperCase() + el.slice(1))}
+    <label className={`flex flex-col my-5 ${label_style} w-[25rem] m-auto`}>
+      <Text text_tag="span" size="xs" bold color={text_color} extra_style="max-sm:ml-5">
+        {label
+          .split(' ')
+          .map(el => el[0].toUpperCase() + el.slice(1))
+          .join(' ')}
       </Text>
       <Input
         name={name}

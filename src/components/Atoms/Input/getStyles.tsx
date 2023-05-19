@@ -11,7 +11,7 @@ const INPUT_SIZE = {
   xs: 'w-[3rem]',
   sm: 'w-[5rem]',
   md: 'w-[8rem]',
-  lg: 'w-[10rem]',
+  lg: 'w-[12rem]',
   xl: 'w-[15rem]',
   '2xl': 'w-[25rem]',
   full: 'w-full',
