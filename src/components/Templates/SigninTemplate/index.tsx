@@ -15,7 +15,7 @@ export interface SigninTemplateProps {
 
 const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplateProps) => {
   return (
-    <section className="py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-md max-sm:w-full max-sm:shadow-none max-sm:px-0 max-sm:border-none">
+    <section className="flex flex-col m-auto py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-lg max-sm:w-full max-sm:shadow-none max-sm:px-0 max-sm:border-none">
       <TitleWithDescription
         title_text="SIGN IN"
         description="Please enter email and password to sign in"
@@ -28,12 +28,11 @@ const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplatePro
         name="email"
         value={value?.email}
         onChange={onChange}
-        text_color="dark"
         input_size="2xl"
         responsive={true}
         placeholder="email@example.com"
         invalid_message="👀 please enter valid email"
-        isValid={inputValidation('email', 'email', value?.email)}
+        isValid={inputValidation('email', value?.email)}
       />
       <InputWithLabel
         label="password"
@@ -41,11 +40,10 @@ const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplatePro
         name="password"
         value={value?.password}
         onChange={onChange}
-        text_color="dark"
         input_size="2xl"
         responsive={true}
         placeholder="password"
-        isValid={inputValidation('password', 'password', value?.password)}
+        isValid={inputValidation('password', value?.password)}
         invalid_message="👀 8 - 16 (character / special symbol / number)"
       />
       <Button

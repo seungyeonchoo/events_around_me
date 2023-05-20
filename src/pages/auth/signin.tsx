@@ -5,7 +5,7 @@ const SignIn = () => {
   const { input, handleInput } = useInput({ email: '', password: '' });
 
   return (
-    <main className="flex justify-center items-center h-[100vh]">
+    <main className="flex items-center h-[100vh]">
       <SigninTemplate
         isValid={false}
         value={input}

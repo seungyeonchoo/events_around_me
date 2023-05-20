@@ -13,14 +13,13 @@ export interface EmailInputProps {
 
 const EmailInput = ({ value, onChange, onClick, isValid, ...rest }: EmailInputProps) => {
   return (
-    <div className="m-auto flex justify-between w-[25rem] items-center relative">
+    <div className="m-auto flex justify-between w-[25rem] items-center relative max-sm:w-full">
       <InputWithLabel
         label="email"
         type="email"
         name="email"
         value={value?.email}
         onChange={onChange}
-        text_color="dark"
         input_size="full"
         responsive={true}
         placeholder="email@example.com"

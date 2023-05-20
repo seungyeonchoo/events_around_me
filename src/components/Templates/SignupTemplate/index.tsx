@@ -1,5 +1,6 @@
+import { isValidSignupInput } from '@/src/lib/checkIsValid';
 import { SignupInput } from '@/src/types';
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import inputValidation from '../../../lib/inputValidation';
 import Button from '../../Atoms/Button';
 import InputWithLabel from '../../Molecules/InputWithLabel';
@@ -16,9 +17,14 @@ export interface SignupTemplateProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SignupTemplate = ({ isValid, value, onClick, onChange }: SignupTemplateProps) => {
+const SignupTemplate = ({ value, onClick, onChange }: SignupTemplateProps) => {
+  const [isMatched, setIsMatched] = useState(false);
+  const confirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
+    return setIsMatched(e.target.value === value?.password);
+  };
+
   return (
-    <section className="flex flex-col py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-md max-sm:w-full max-sm:shadow-none max-sm:px-0 max-sm:border-none">
+    <section className="flex flex-col m-auto py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-lg max-sm:w-full max-sm:shadow-none max-sm:px-0 max-sm:border-none">
       <TitleWithDescription
         title_text="SIGN UP"
         description="Please fill informations below to sign up"
@@ -29,7 +35,7 @@ const SignupTemplate = ({ isValid, value, onClick, onChange }: SignupTemplatePro
         value={value}
         onChange={onChange}
         onClick={onClick}
-        isValid={inputValidation('email', 'email', value?.email)}
+        isValid={inputValidation('email', value?.email)}
       />
 
       <InputWithLabel
@@ -38,38 +44,34 @@ const SignupTemplate = ({ isValid, value, onClick, onChange }: SignupTemplatePro
         name="password"
         value={value?.password}
         onChange={onChange}
-        text_color="dark"
         input_size="2xl"
         responsive={true}
         placeholder="password"
-        isValid={inputValidation('password', 'password', value?.password)}
+        isValid={inputValidation('password', value?.password)}
         invalid_message="👀 8 - 16 (character / special symbol / number)"
       />
       <InputWithLabel
         label="confirm password"
         type="password"
-        name="password"
-        // value={value?.password}
-        // onChange={onChange}
-        text_color="dark"
+        onChange={confirmPassword}
         input_size="2xl"
         responsive={true}
-        placeholder="password"
-        isValid={inputValidation('password', '', value?.password)}
+        placeholder="confirm password"
+        isValid={isMatched}
         invalid_message="🤔 input is not same with password"
       />
       <NameInput value={value} onChange={onChange} />
       <Button
         onClick={onClick}
-        disabled={!isValid}
+        disabled={!isValidSignupInput(value)}
         size="2xl"
         responsive={true}
         color="primary"
         extra_style="my-10 mx-auto"
       >
-        Sign In
+        Sign Up
       </Button>
-      <TextWithLink text="New to our web page?" link="/auth/signup" link_text="SIGN UP" />
+      <TextWithLink text="already have accout?" link="/auth/signin" link_text="SIGN IN" />
     </section>
   );
 };

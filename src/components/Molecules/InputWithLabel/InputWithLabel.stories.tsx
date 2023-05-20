@@ -17,7 +17,6 @@ Default.args = {
   label: 'label',
   type: 'text',
   placeholder: 'default',
-  text_color: 'dark',
 };
 
 export const Invalid = Template.bind({});
@@ -27,6 +26,5 @@ Invalid.args = {
   type: 'email',
   placeholder: 'default',
   value: 'hello',
-  text_color: 'dark',
   invalid_message: 'invalid input!',
 };

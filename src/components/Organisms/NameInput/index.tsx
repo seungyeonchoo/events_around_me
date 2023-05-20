@@ -18,25 +18,23 @@ const NameInput = ({ value, onChange }: NameInputProps) => {
         name="firstName"
         value={value?.firstName}
         onChange={onChange}
-        text_color="dark"
         input_size="lg"
         responsive={true}
         placeholder="First Name"
-        invalid_message="👀 please enter valid email"
-        isValid={inputValidation('text', 'firstName', value?.firstName)}
+        invalid_message="First name can not be empty. 👀"
+        isValid={inputValidation('firstName', value?.firstName)}
       />
       <InputWithLabel
         label="last name"
         type="text"
-        name="firstName"
-        value={value?.firstName}
+        name="lastName"
+        value={value?.lastName}
         onChange={onChange}
-        text_color="dark"
         input_size="lg"
         responsive={true}
         placeholder="Last Name"
-        invalid_message="👀 please enter valid email"
-        isValid={inputValidation('text', 'firstName', value?.lastName)}
+        invalid_message="Last name can not be empty. 👀"
+        isValid={inputValidation('firstName', value?.lastName)}
       />
     </div>
   );
