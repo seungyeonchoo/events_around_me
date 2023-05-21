@@ -13,8 +13,8 @@ const TEXT_SIZE = {
   md: 'text-md',
   lg: 'text-lg',
   xl: 'text-xl',
-  '2xl': 'text-2xl',
-  '3xl': 'text-[3rem]',
+  '2xl': 'text-[2rem]',
+  '3xl': 'text-[2.5rem]',
   '4xl': 'text-[4rem]',
 };
 

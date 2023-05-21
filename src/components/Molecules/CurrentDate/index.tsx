@@ -11,7 +11,7 @@ const CurrentDate = (props: CurrentDateProps) => {
   const currentDate = new Date().getDate();
   const currentDay = new Date().getDay();
   return (
-    <Text size="3xl" text_tag="span" color="secondary" extra_style="text-center" bold>
+    <Text size="2xl" text_tag="p" color="secondary" extra_style="text-center" bold>
       {`${currentDate} ${currentMonth} ${currentYear}`}
       <br />
       {DAY[currentDay]}
