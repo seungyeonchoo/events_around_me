@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import InputWithLabel, { InputWithLabelProps } from '.';
 
 export default {
-  title: 'Molecules/Input_with_label',
+  title: 'Molecules/Input with label',
   component: InputWithLabel,
   tags: ['autodocs'],
 } as Meta<typeof InputWithLabel>;

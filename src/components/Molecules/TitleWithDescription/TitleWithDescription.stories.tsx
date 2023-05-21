@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import TitleWithDescription, { TitleWithDescriptionProps } from '.';
 
 export default {
-  title: 'MOLECULES/Title_with_description',
+  title: 'MOLECULES/Title with description',
   component: TitleWithDescription,
   tags: ['autotag'],
 } as Meta<typeof TitleWithDescription>;

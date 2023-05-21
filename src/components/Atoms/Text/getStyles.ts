@@ -14,8 +14,8 @@ const TEXT_SIZE = {
   lg: 'text-lg',
   xl: 'text-xl',
   '2xl': 'text-2xl',
-  '3xl': 'text-3xl',
-  '4xl': 'text-4xl',
+  '3xl': 'text-[3rem]',
+  '4xl': 'text-[4rem]',
 };
 
 const getStyles = ({ color, bold, underline, size, italic }: TextStyleProps) => {

@@ -56,7 +56,7 @@ const SigninTemplate = ({ isValid, value, onClick, onChange }: SigninTemplatePro
       >
         Sign In
       </Button>
-      <TextWithLink text="New to our web page?" link="/auth/signup" link_text="SIGN UP" />
+      <TextWithLink text="New to our web page?" link="/signup" link_text="SIGN UP" />
     </section>
   );
 };

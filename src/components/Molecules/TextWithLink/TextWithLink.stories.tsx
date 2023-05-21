@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import TextWithLink, { TextWithLinkProps } from '.';
 
 export default {
-  title: 'MOLECULES/Text_with_label',
+  title: 'MOLECULES/Text with label',
   component: TextWithLink,
   tags: ['autodocs'],
 } as Meta<typeof TextWithLink>;

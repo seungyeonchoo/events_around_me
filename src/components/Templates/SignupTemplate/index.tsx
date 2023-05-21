@@ -1,6 +1,6 @@
-import { isValidSignupInput } from '@/src/lib/checkIsValid';
 import { SignupInput } from '@/src/types';
 import React, { ChangeEvent, useState } from 'react';
+import { isValidSignupInput } from '../../../lib/checkIsValid';
 import inputValidation from '../../../lib/inputValidation';
 import Button from '../../Atoms/Button';
 import InputWithLabel from '../../Molecules/InputWithLabel';
@@ -35,6 +35,7 @@ const SignupTemplate = ({ value, onClick, onChange }: SignupTemplateProps) => {
         value={value}
         onChange={onChange}
         onClick={onClick}
+        // 이메일 중복 확인
         isValid={inputValidation('email', value?.email)}
       />
 
@@ -71,7 +72,7 @@ const SignupTemplate = ({ value, onClick, onChange }: SignupTemplateProps) => {
       >
         Sign Up
       </Button>
-      <TextWithLink text="already have accout?" link="/auth/signin" link_text="SIGN IN" />
+      <TextWithLink text="already have accout?" link="/" link_text="SIGN IN" />
     </section>
   );
 };

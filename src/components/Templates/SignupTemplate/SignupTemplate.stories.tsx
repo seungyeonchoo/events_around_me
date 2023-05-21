@@ -4,7 +4,7 @@ import SignupTemplate, { SignupTemplateProps } from '.';
 export default {
   title: 'TEMPLATES/Sign Up',
   compoenet: SignupTemplate,
-  tags: ['autodoc'],
+  tags: ['autodocs'],
 } as Meta<typeof SignupTemplate>;
 
 const Template: StoryFn<typeof SignupTemplate> = (args: SignupTemplateProps) => (

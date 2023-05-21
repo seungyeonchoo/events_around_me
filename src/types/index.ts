@@ -40,3 +40,7 @@ export interface SignupInput {
   firstName: string;
   lastName: string;
 }
+
+export interface IUser extends SignupInput {
+  id: number;
+}
