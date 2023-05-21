@@ -14,6 +14,16 @@ const getHabits = (
   status: 'total' | 'completed' | 'not_yet',
 ) => {
   switch (status) {
+    case 'completed':
+      return habits?.filter(
+        (habit: IHabit) =>
+          habit?.daily_status[getConvertedDate(new Date().toDateString())] === true,
+      );
+    case 'not_yet':
+      return habits?.filter(
+        (habit: IHabit) =>
+          habit?.daily_status[getConvertedDate(new Date().toDateString())] === false,
+      );
     case 'total':
       if (finishedToggle)
         return habits?.filter((habit: IHabit) => {

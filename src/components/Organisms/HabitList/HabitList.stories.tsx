@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import HabitList, { HabitListProps } from '.';
-import { mockHabit_1, mockHabit_2 } from '../../../lib/mockData';
+import { mockHabit_1, mockHabit_2, mockHabit_3 } from '../../../lib/mockData';
 
 export default {
   title: 'ORGANISMS/Habit List',
@@ -13,5 +13,5 @@ const Template: StoryFn<typeof HabitList> = (args: HabitListProps) => <HabitList
 export const Default = Template.bind({});
 
 Default.args = {
-  habits: [mockHabit_1, mockHabit_2],
+  habits: [mockHabit_1, mockHabit_2, mockHabit_3],
 };
