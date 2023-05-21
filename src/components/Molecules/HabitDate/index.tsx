@@ -1,3 +1,4 @@
+import { getConvertedDate } from '../../../lib/dateUtils';
 import Text from '../../Atoms/Text';
 
 export interface HabitDateProps {
@@ -9,10 +10,10 @@ const HabitDate = ({ start_date, end_date }: HabitDateProps) => {
   return (
     <div className="max-sm:hidden">
       <Text text_tag="p" size="xs" color="dark">
-        {start_date}
+        {getConvertedDate(start_date)}
       </Text>
       <Text text_tag="p" size="xs" color="dark">
-        {end_date}
+        {getConvertedDate(end_date)}
       </Text>
     </div>
   );
