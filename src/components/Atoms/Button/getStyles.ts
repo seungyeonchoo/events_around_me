@@ -9,7 +9,7 @@ const BUTTON_COLOR = {
 
 const BUTTON_SIZE = {
   xs: 'w-[2rem] h-[2rem] ',
-  sm: 'w-[5rem] h-[2.5rem] p-2 ',
+  sm: 'w-[3rem] h-[3rem] p-2 ',
   md: 'w-[8rem] h-[2.5rem] p-2 ',
   lg: 'w-[12.5rem] h-[2.5rem] p-2 ',
   xl: 'w-[15rem] h-[2.5rem] p-2 ',

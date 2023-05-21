@@ -35,3 +35,11 @@ export const mockHabit_3 = {
 };
 
 mockHabit_3.daily_status[getConvertedDate(new Date().toDateString())] = true;
+
+export const mockUser = {
+  id: 1,
+  email: 'user@email.com',
+  password: '12345678',
+  firstName: 'Seungyeon',
+  lastName: 'Choo',
+};

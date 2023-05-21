@@ -5,6 +5,7 @@ export interface CheckBoxProps extends ComponentPropsWithoutRef<'input'> {
   toggle_size: 'sm' | 'lg';
   color: 'primary' | 'secondary' | 'dark';
   extra_style?: string | undefined;
+  showAll: boolean;
 }
 
 const SWITCH_COLOR = {
@@ -13,12 +14,12 @@ const SWITCH_COLOR = {
   dark: 'bg-dark border-dark',
 };
 
-const CheckBox = ({ toggle_size, extra_style, color, ...rest }: CheckBoxProps) => {
+const CheckBox = ({ toggle_size, extra_style, color, showAll, ...rest }: CheckBoxProps) => {
   const { switch_style, button_style } = getStyles(toggle_size);
   return (
     <label
       className={`${switch_style} ${extra_style} ${
-        rest.checked ? SWITCH_COLOR[color] : 'bg-default_strong border-gray-400'
+        showAll ? SWITCH_COLOR[color] : 'bg-gray-400 border-gray-400'
       }`}
     >
       <input className="peer sr-only" type="checkbox" readOnly {...rest} />
