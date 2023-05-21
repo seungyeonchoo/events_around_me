@@ -44,3 +44,12 @@ export interface SignupInput {
 export interface IUser extends SignupInput {
   id: number;
 }
+
+export interface IHabbit {
+  id: number;
+  title: string;
+  start_date: string;
+  end_date: string;
+  description: string;
+  userId: number;
+}
