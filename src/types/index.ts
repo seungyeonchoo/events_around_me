@@ -45,11 +45,16 @@ export interface IUser extends SignupInput {
   id: number;
 }
 
-export interface IHabbit {
+export interface IHabit {
   id: number;
   title: string;
   start_date: string;
   end_date: string;
   description: string;
   userId: number;
+  daily_status: IDailyStatus;
+}
+
+export interface IDailyStatus {
+  [key: string]: boolean;
 }
