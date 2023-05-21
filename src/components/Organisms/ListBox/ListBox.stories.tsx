@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import ListBox, { ListBoxProps } from '.';
+import { mockHabit_1, mockHabit_2, mockHabit_3 } from '../../../lib/mockData';
 
 export default {
   title: 'ORGANISMS/List Box',
@@ -11,4 +12,6 @@ const Template: StoryFn<typeof ListBox> = (args: ListBoxProps) => <ListBox {...a
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  habits: [mockHabit_1, mockHabit_2, mockHabit_3],
+};
