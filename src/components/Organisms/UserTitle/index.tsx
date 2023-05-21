@@ -5,7 +5,7 @@ export interface UserTitleProps extends WelcomeTitleProps {}
 
 const UserTitle = ({ user }: UserTitleProps) => {
   return (
-    <section>
+    <section className="bg-dark py-5">
       <WelcomeTitle user={user} />
       <CurrentDate />
     </section>
