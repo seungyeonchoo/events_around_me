@@ -40,7 +40,7 @@ const HabitList = ({ habits, finishedToggle, status }: HabitListProps) => {
   const filteredHabit = getHabits(habits, finishedToggle, status);
 
   return (
-    <section className="h-[23rem] w-[98%] bg-white mx-auto my-1 rounded-xl overflow-hidden">
+    <section className="h-[23rem] w-[95%] bg-white mx-auto my-1 rounded-xl overflow-hidden">
       {filteredHabit?.map((habit: IHabit) => (
         <HabitItem key={habit?.id} habit={habit} />
       ))}
