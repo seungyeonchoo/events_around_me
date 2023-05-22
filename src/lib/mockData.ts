@@ -42,4 +42,5 @@ export const mockUser = {
   password: '12345678',
   firstName: 'Seungyeon',
   lastName: 'Choo',
+  habits: [mockHabit_1, mockHabit_2, mockHabit_3],
 };

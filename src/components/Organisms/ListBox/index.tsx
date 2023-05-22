@@ -12,7 +12,9 @@ export interface ListBoxProps {
 
 const ListBox = ({ habits }: ListBoxProps) => {
   const { toggle: finishedToggle, handleToggle: handleFinishedToggle } = useToggle();
+
   const [toggle, setToggle] = useState<'total' | 'completed' | 'not_yet'>('total');
+
   const handleToggle = (option: 'total' | 'completed' | 'not_yet') => {
     setToggle(option);
   };
@@ -28,7 +30,7 @@ const ListBox = ({ habits }: ListBoxProps) => {
         size="sm"
         color="primary"
         rounded
-        extra_style="absolute bottom-[1rem] right-[1rem] shadow-xl"
+        extra_style="absolute bottom-[1rem] right-[2rem] shadow-xl"
       >
         ✏️
       </Button>

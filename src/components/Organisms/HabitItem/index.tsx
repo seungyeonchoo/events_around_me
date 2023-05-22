@@ -3,6 +3,7 @@ import { getConvertedDate } from '../../../lib/dateUtils';
 import Button from '../../Atoms/Button';
 import DueDate from '../../Atoms/DueDate';
 import Text from '../../Atoms/Text';
+import CompletedStamp from '../../Molecules/CompletedStamp';
 import HabitDate from '../../Molecules/HabitDate';
 
 export interface HabitItemProps {
@@ -10,6 +11,8 @@ export interface HabitItemProps {
 }
 
 const HabitItem = ({ habit }: HabitItemProps) => {
+  const currDate = getConvertedDate(new Date().toDateString());
+
   return (
     <article className="flex items-center justify-around border border-primary w-[90%] h-[3rem] m-auto rounded-xl shadow-md px-3 my-2 relative">
       <DueDate due_date={habit?.end_date} />
@@ -20,18 +23,7 @@ const HabitItem = ({ habit }: HabitItemProps) => {
       <Button size="xs" color="secondary" rounded link={`/habit/${habit?.id}`}>
         👀
       </Button>
-      {habit?.daily_status[getConvertedDate(new Date().toDateString())] === true && (
-        <Text
-          text_tag="span"
-          size="xs"
-          color="secondary"
-          extra_style="absolute opacity-70 top-0"
-          bold
-          italic
-        >
-          COMPLETE TODAY
-        </Text>
-      )}
+      {habit?.daily_status[currDate] === true && <CompletedStamp />}
     </article>
   );
 };

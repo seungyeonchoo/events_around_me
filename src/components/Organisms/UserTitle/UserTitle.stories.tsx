@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import UserTitle, { UserTitleProps } from '.';
+import { mockUser } from '../../../lib/mockData';
 
 export default {
   title: 'ORGANISMS/User Title',
@@ -12,11 +13,5 @@ const Template: StoryFn<typeof UserTitle> = (args: UserTitleProps) => <UserTitle
 export const Default = Template.bind({});
 
 Default.args = {
-  user: {
-    id: 1,
-    email: 'user@email.com',
-    password: '12345678',
-    firstName: 'Seungyeon',
-    lastName: 'Choo',
-  },
+  user: mockUser,
 };

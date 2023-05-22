@@ -43,6 +43,7 @@ export interface SignupInput {
 
 export interface IUser extends SignupInput {
   id: number;
+  habits: IHabit[];
 }
 
 export interface IHabit {

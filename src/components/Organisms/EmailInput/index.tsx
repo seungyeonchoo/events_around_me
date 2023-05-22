@@ -11,7 +11,7 @@ export interface EmailInputProps {
   isValid: boolean;
 }
 
-const EmailInput = ({ value, onChange, onClick, isValid, ...rest }: EmailInputProps) => {
+const EmailInput = ({ value, onChange, onClick, isValid }: EmailInputProps) => {
   return (
     <div className="m-auto flex justify-between w-[25rem] items-center relative max-sm:w-full">
       <InputWithLabel
