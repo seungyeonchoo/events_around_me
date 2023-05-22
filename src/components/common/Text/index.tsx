@@ -16,7 +16,7 @@ const TEXT_SIZE = {
   xl: 'text-xl',
   '2xl': 'text-[2rem]',
   '3xl': 'text-[2.5rem]',
-  '4xl': 'text-[4rem]',
+  '4xl': 'text-[3rem]',
 };
 
 export interface TextProps {

@@ -8,7 +8,7 @@ export interface HabitDateProps {
 
 const HabitDate = ({ start_date, end_date }: HabitDateProps) => {
   return (
-    <div className="max-sm:hidden">
+    <div className="max-sm:hidden flex flex-col items-center">
       <Text text_tag="p" size="xs" color="dark">
         {getConvertedDate(start_date)}
       </Text>

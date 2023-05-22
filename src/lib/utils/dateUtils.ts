@@ -12,7 +12,8 @@ export const getRemainDate = (date: string) => {
 export const getConvertedDate = (date: string, day?: boolean | undefined) => {
   const getFullYear = new Date(date).getFullYear();
   const getMonth = MONTH[new Date(date).getMonth()];
-  const getDate = new Date(date).getDate();
+  const getDate =
+    new Date(date).getDate() < 10 ? `0${new Date(date).getDate()}` : new Date(date).getDate();
   const getDay = DAY[new Date(date).getDay()];
 
   if (day) return `${getDate}. ${getMonth}. ${getFullYear} (${getDay})`;
