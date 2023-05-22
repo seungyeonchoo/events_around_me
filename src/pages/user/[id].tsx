@@ -1,5 +1,12 @@
+import UserTemplate from '@/src/components/user/UserTemplate';
+import { mockUser } from '@/src/lib/mocks/mockData';
+
 const User = () => {
-  return <div>user</div>;
+  return (
+    <main>
+      <UserTemplate user={mockUser} />
+    </main>
+  );
 };
 
 export default User;
@@ -11,4 +18,4 @@ export default User;
 // 날짜
 // 시간
 // -- 컴포넌트
-// 현재 진행중인, 오늘 완료한, 완료하지 못한,
+// 현재 진행중인, 완료한, 미완료한
