@@ -19,3 +19,10 @@ export const getConvertedDate = (date: string, day?: boolean | undefined) => {
   if (day) return `${getDate}. ${getMonth}. ${getFullYear} (${getDay})`;
   else return `${getDate}. ${getMonth}. ${getFullYear}`;
 };
+
+export const getCurrDate = (start_date: string) => {
+  const timeDiff = new Date().getTime() - new Date(start_date).getTime();
+  const curr = Math.floor(timeDiff / (1000 * 24 * 60 * 60));
+
+  return curr === 0 ? '🔥' : curr;
+};
