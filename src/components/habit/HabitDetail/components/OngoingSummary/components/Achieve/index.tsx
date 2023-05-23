@@ -11,7 +11,7 @@ const Achieve = ({ title, complete_date, total_date }: AchieveProps) => {
       : Math.floor((complete_date / total_date) * 100).toFixed(1);
 
   return (
-    <div className="w-[18rem] h-[2.5rem] flex shadow-lg max-sm:w-[7rem] max-sm:h-[2rem] rounded-lg overflow-hidden">
+    <div className="w-[18rem] h-[2.5rem] flex shadow-lg max-sm:w-[8.5rem] max-sm:h-[2rem] rounded-lg overflow-hidden">
       <span className="bg-secondary text-default w-[30%] flex justify-center items-center text-sm font-bold max-sm:w-[50%] max-sm:text-xs">
         {title?.toUpperCase()}
       </span>

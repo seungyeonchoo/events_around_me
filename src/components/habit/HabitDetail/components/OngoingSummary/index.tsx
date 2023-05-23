@@ -15,7 +15,7 @@ const OngoingSummary = ({ habit }: OngoingSummaryProps) => {
   const due_date = getRemainDate(habit?.end_date);
 
   return (
-    <section className="m-auto h-[17rem] py-5 w-[20rem] flex flex-col justify-between max-sm:w-full max-sm:h-[11rem]">
+    <section className="h-[14rem] w-[20rem] flex flex-col justify-between max-sm:w-full max-sm:h-[5rem]">
       <DateSummary due_date={due_date} curr_date={curr_date} />
       <AchievementSummary
         curr_date={curr_date_num as number}

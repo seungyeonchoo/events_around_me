@@ -5,7 +5,7 @@ export interface CalendarProps {
 
 const Calendar = ({ title, date }: CalendarProps) => {
   return (
-    <div className="w-[7rem] h-[7rem] flex flex-col rounded-t-xl overflow-hidden shadow-md max-sm:flex-row max-sm:rounded-md max-sm:h-[2rem]">
+    <div className="w-[8.5rem] h-[7rem] flex flex-col rounded-t-xl overflow-hidden shadow-md max-sm:flex-row max-sm:rounded-md max-sm:h-[2rem]">
       <span className="h-[30%] bg-primary text-default font-bold flex items-center justify-center max-sm:h-full max-sm:w-[50%] max-sm:text-xs">
         {title.toUpperCase()}
       </span>
