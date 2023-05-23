@@ -9,6 +9,15 @@ export const getRemainDate = (date: string) => {
   return remain === 0 ? 'DUE' : remain < 0 ? 'END' : remain;
 };
 
+export const getCurrDate = (start_date: string, numberOnly?: boolean) => {
+  const timeDiff = new Date().getTime() - new Date(start_date).getTime();
+  const curr = Math.floor(timeDiff / (1000 * 24 * 60 * 60));
+
+  if (numberOnly) return curr;
+
+  return curr === 0 ? '🔥' : curr;
+};
+
 export const getConvertedDate = (date: string, day?: boolean | undefined) => {
   const getFullYear = new Date(date).getFullYear();
   const getMonth = MONTH[new Date(date).getMonth()];
@@ -18,11 +27,4 @@ export const getConvertedDate = (date: string, day?: boolean | undefined) => {
 
   if (day) return `${getDate}. ${getMonth}. ${getFullYear} (${getDay})`;
   else return `${getDate}. ${getMonth}. ${getFullYear}`;
-};
-
-export const getCurrDate = (start_date: string) => {
-  const timeDiff = new Date().getTime() - new Date(start_date).getTime();
-  const curr = Math.floor(timeDiff / (1000 * 24 * 60 * 60));
-
-  return curr === 0 ? '🔥' : curr;
 };

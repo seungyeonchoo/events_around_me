@@ -7,7 +7,7 @@ export interface DateSummaryProps {
 
 const DateSummary = ({ curr_date, due_date }: DateSummaryProps) => {
   return (
-    <section className="flex w-[15rem] justify-between">
+    <section className="flex w-[18rem] justify-between max-sm:justify-around">
       <Calendar title="day" date={curr_date} />
       <Calendar title="d-day" date={due_date} />
     </section>
