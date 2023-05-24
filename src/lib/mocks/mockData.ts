@@ -1,4 +1,4 @@
-import { getConvertedDate } from '../utils/dateUtils';
+import { getCurrDate } from '../utils/dateUtils';
 import getDateList from '../utils/getDateList';
 
 export const mockHabit_1 = {
@@ -34,7 +34,7 @@ export const mockHabit_3 = {
   ),
 };
 
-mockHabit_3.daily_status[getConvertedDate(new Date().toDateString())] = true;
+mockHabit_3.daily_status[getCurrDate(mockHabit_3.start_date, true) as number].status = true;
 
 export const mockUser = {
   id: 1,

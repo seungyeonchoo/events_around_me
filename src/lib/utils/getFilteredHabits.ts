@@ -1,30 +1,33 @@
 import { IHabit } from '../types';
-import { getConvertedDate } from './dateUtils';
+import { getCurrDate } from './dateUtils';
 
 export const getFilteredHabits = (
   habits: IHabit[],
   ongoning: boolean,
   status: 'total' | 'completed' | 'not_yet',
 ) => {
+  const ongoing_today = habits?.filter((habit: IHabit) => {
+    const curr_date = getCurrDate(habit?.start_date, true) as number;
+    return curr_date >= 0 && curr_date <= habit?.daily_status?.length;
+  });
+
+  const completed_today = ongoing_today.filter((habit: IHabit) => {
+    const curr_date = getCurrDate(habit?.start_date, true) as number;
+    return habit?.daily_status[curr_date]?.status === true;
+  });
+
+  const uncompleted_today = ongoing_today.filter((habit: IHabit) => {
+    const curr_date = getCurrDate(habit?.start_date, true) as number;
+    return habit?.daily_status[curr_date]?.status !== true;
+  });
+
   switch (status) {
     case 'completed':
-      return habits?.filter(
-        (habit: IHabit) =>
-          habit?.daily_status[getConvertedDate(new Date().toDateString())] === true,
-      );
+      return completed_today;
     case 'not_yet':
-      return habits?.filter(
-        (habit: IHabit) =>
-          habit?.daily_status[getConvertedDate(new Date().toDateString())] === false,
-      );
+      return uncompleted_today;
     case 'total':
-      if (ongoning)
-        return habits?.filter((habit: IHabit) => {
-          const isOngoing = new Date(habit?.end_date) > new Date();
-          const isDueDate =
-            getConvertedDate(new Date().toDateString()) === getConvertedDate(habit?.end_date);
-          return isOngoing || isDueDate;
-        });
+      if (ongoning) return ongoing_today;
       else return habits;
   }
 };

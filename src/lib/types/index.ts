@@ -6,6 +6,21 @@ export type TagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div' | 's
 
 export type TextSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
 
+export interface ButtonStyleProps {
+  color?: Colors;
+  size: Sizes;
+  rounded?: boolean | undefined;
+  responsive?: boolean | undefined;
+}
+
+export interface TextStyleProps {
+  color?: Colors;
+  bold?: boolean | undefined;
+  underline?: boolean;
+  italic?: boolean;
+  size: TextSizes;
+}
+
 export interface InputStyleProps {
   input_size: Sizes;
   rounded?: boolean | undefined;
@@ -38,9 +53,11 @@ export interface IHabit {
   end_date: string;
   description: string;
   userId: number;
-  daily_status: IDailyStatus;
+  daily_status: IDailyStatus[];
 }
 
 export interface IDailyStatus {
-  [key: string]: boolean;
+  id: number;
+  date: string;
+  status: boolean;
 }

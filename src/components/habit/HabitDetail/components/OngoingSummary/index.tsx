@@ -1,4 +1,4 @@
-import { IHabit } from '../../../../../../src/lib/types';
+import { IDailyStatus, IHabit } from '../../../../../../src/lib/types';
 import { getCurrDate, getRemainDate } from '../../../../../../src/lib/utils/dateUtils';
 import AchievementSummary from './components/AchievementSummary';
 import DateSummary from './components/DateSummary';
@@ -10,8 +10,8 @@ export interface OngoingSummaryProps {
 const OngoingSummary = ({ habit }: OngoingSummaryProps) => {
   const curr_date = getCurrDate(habit?.start_date);
   const curr_date_num = getCurrDate(habit?.start_date, true);
-  const total = Object.values(habit?.daily_status);
-  const completed = total.filter(el => el === true).length;
+  const total = habit?.daily_status;
+  const completed = total.filter((status: IDailyStatus) => status.status === true).length;
   const due_date = getRemainDate(habit?.end_date);
 
   return (
