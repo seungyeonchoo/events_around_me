@@ -9,7 +9,7 @@ const getDateList = (start_date: string, end_date: string) => {
 
   for (let i = 0; i <= dates; i++) {
     const date = getConvertedDate(new Date(start.setDate(start.getDate() + 1)).toDateString());
-    const date_status = { id: i, date: date, status: false };
+    const date_status = { id: i + 1, date: date, status: false };
     list.push(date_status);
     // list[date] = false;
   }
