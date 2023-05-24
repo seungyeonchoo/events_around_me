@@ -1,5 +1,5 @@
 import { IDailyStatus } from '@/src/lib/types';
-import { getConvertedDate } from '../../../../../../src/lib/utils/dateUtils';
+import { getConvertedDate } from '../../../lib/utils/dateUtils';
 
 export interface StatusItemProps extends IDailyStatus {}
 

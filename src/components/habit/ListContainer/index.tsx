@@ -7,7 +7,7 @@ export interface ListContainerProps {
 
 const ListContainer = ({ daily_status }: ListContainerProps) => {
   return (
-    <section className="grid grid-cols-5 gap-y-10 max-sm:grid-cols-3 max-sm:gap-y-3">
+    <section className="grid grid-cols-4 my-10 gap-y-10 max-sm:grid-cols-3 max-sm:gap-y-5">
       {daily_status?.map((status: IDailyStatus) => (
         <StatusItem key={status?.id} id={status?.id} date={status?.date} status={status?.status} />
       ))}

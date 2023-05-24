@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react';
 import ListContainer, { ListContainerProps } from '.';
-import { mockHabit_3 } from '../../../../../../src/lib/mocks/mockData';
+import { mockHabit_3 } from '../../../../src/lib/mocks/mockData';
 
 export default {
-  title: 'Habit/StatusList/ListContainer',
+  title: 'Habit/ListContainer',
   component: ListContainer,
   tags: ['autodocs'],
 } as Meta<typeof ListContainer>;

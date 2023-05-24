@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react';
 import StatusItem, { StatusItemProps } from '.';
-import { mockHabit_1, mockHabit_3 } from '../../../../../../src/lib/mocks/mockData';
+import { mockHabit_1, mockHabit_3 } from '../../../lib/mocks/mockData';
 
 export default {
-  title: 'Habit/StatusList/StatusItem',
+  title: 'Habit/StatusItem',
   component: StatusItem,
   tags: ['autodocs'],
 } as Meta<typeof StatusItem>;
