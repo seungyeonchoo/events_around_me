@@ -1,5 +1,5 @@
-import { getFilteredHabits } from '@/src/lib/utils/getFilteredHabits';
 import { IHabit } from '../../../../../../src/lib/types';
+import { getFilteredHabits } from '../../../../../../src/lib/utils/getFilteredHabits';
 import HabitItem from '../HabitItem';
 
 export interface HabitListProps {
