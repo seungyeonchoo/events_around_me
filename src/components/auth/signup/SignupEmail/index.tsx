@@ -13,7 +13,7 @@ export interface SignupEmailProps {
 
 const SignupEmail = ({ value, onChange, onClick, isValid }: SignupEmailProps) => {
   return (
-    <div className="m-auto flex justify-between w-[25rem] items-center relative max-sm:w-full">
+    <div className="m-auto flex justify-between w-full items-center relative ">
       <InputWithLabel
         label="email"
         type="email"
@@ -21,7 +21,7 @@ const SignupEmail = ({ value, onChange, onClick, isValid }: SignupEmailProps) =>
         value={value?.email}
         onChange={onChange}
         input_size="full"
-        responsive={true}
+        responsive
         placeholder="email@example.com"
         invalid_message="👀 please enter valid email"
         isValid={isValid}
@@ -31,7 +31,7 @@ const SignupEmail = ({ value, onChange, onClick, isValid }: SignupEmailProps) =>
         color="primary"
         rounded
         onClick={onClick}
-        extra_style="absolute right-[1rem] max-sm:right-[2rem]"
+        extra_style="absolute right-10 max-sm:right-16"
       >
         👀
       </Button>

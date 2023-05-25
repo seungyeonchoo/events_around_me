@@ -12,7 +12,7 @@ export interface SignupNameProps {
 
 const SignupName = ({ value, onChange, valid_first, valid_last }: SignupNameProps) => {
   return (
-    <div className="m-auto flex justify-between w-[25rem] max-sm:flex-col max-sm:w-full">
+    <div className="m-auto flex justify-between w-full max-sm:flex-col">
       <LabeledInput
         label="first name"
         type="text"
@@ -20,7 +20,7 @@ const SignupName = ({ value, onChange, valid_first, valid_last }: SignupNameProp
         value={value?.firstName}
         onChange={onChange}
         input_size="lg"
-        responsive={true}
+        responsive
         placeholder="First Name"
         invalid_message="First name can not be empty. 👀"
         isValid={valid_first}
@@ -32,7 +32,7 @@ const SignupName = ({ value, onChange, valid_first, valid_last }: SignupNameProp
         value={value?.lastName}
         onChange={onChange}
         input_size="lg"
-        responsive={true}
+        responsive
         placeholder="Last Name"
         invalid_message="Last name can not be empty. 👀"
         isValid={valid_last}

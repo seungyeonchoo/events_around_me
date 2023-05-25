@@ -17,8 +17,8 @@ const SigninInputs = ({ value, onChange }: SigninInputsProps) => {
         type="email"
         name="email"
         onChange={onChange}
-        input_size="2xl"
-        responsive={true}
+        input_size="full"
+        responsive
         placeholder="email"
         isValid={inputValidation('email', value?.email)}
         invalid_message="Please enter valid email. 👀"
@@ -29,8 +29,8 @@ const SigninInputs = ({ value, onChange }: SigninInputsProps) => {
         name="password"
         value={value?.password}
         onChange={onChange}
-        input_size="2xl"
-        responsive={true}
+        input_size="full"
+        responsive
         placeholder="password"
         isValid={inputValidation('password', value?.password)}
         invalid_message="8 - 16 (character / special symbol / number). 👀"

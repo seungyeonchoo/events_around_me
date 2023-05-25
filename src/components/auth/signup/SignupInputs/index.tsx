@@ -3,7 +3,6 @@ import { ChangeEvent } from 'react';
 import LabeledInput from '../../../../../src/components/common/LabeledInput';
 import { inputValidation } from '../../../../../src/lib/utils/checkIsValid';
 import SignupEmail from '../SignupEmail';
-import SignupName from '../SignupName';
 
 export interface SignupInputsProps {
   value: SignupInput;
@@ -36,8 +35,8 @@ const SignupInputs = ({
         name="password"
         value={value?.password}
         onChange={onChange}
-        input_size="2xl"
-        responsive={true}
+        input_size="full"
+        responsive
         placeholder="password"
         isValid={inputValidation('password', value?.password)}
         invalid_message="👀 8 - 16 (character / special symbol / number)"
@@ -46,18 +45,42 @@ const SignupInputs = ({
         label="confirm password"
         type="password"
         onChange={handleIsMatched}
-        input_size="2xl"
-        responsive={true}
+        input_size="full"
+        responsive
         placeholder="confirm password"
         isValid={isMatched}
         invalid_message="🤔 input is not same with password"
       />
-      <SignupName
+      <LabeledInput
+        label="first name"
+        type="text"
+        name="firstName"
+        value={value?.firstName}
+        onChange={onChange}
+        input_size="full"
+        responsive
+        placeholder="First Name"
+        invalid_message="First name can not be empty. 👀"
+        isValid={inputValidation('firstName', value?.firstName)}
+      />
+      <LabeledInput
+        label="last name"
+        type="text"
+        name="lastName"
+        value={value?.lastName}
+        onChange={onChange}
+        input_size="full"
+        responsive
+        placeholder="Last Name"
+        invalid_message="Last name can not be empty. 👀"
+        isValid={inputValidation('lastName', value?.lastName)}
+      />
+      {/* <SignupName
         value={value}
         onChange={onChange}
         valid_first={inputValidation('firstName', value?.firstName)}
         valid_last={inputValidation('lastName', value?.lastName)}
-      />
+      /> */}
     </>
   );
 };
