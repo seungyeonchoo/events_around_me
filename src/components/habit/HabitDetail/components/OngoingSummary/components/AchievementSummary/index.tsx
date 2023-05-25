@@ -2,7 +2,7 @@ import Achieve from '../Achieve';
 
 export interface AchievementSummaryProps {
   completed: number;
-  curr_date: number;
+  curr_date: number | '🔥';
   total_date: number;
 }
 

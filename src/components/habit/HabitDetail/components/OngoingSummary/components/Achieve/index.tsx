@@ -1,13 +1,13 @@
 export interface AchieveProps {
   title: string;
   complete_date: number;
-  total_date: number;
+  total_date: number | '🔥';
 }
 
 const Achieve = ({ title, complete_date, total_date }: AchieveProps) => {
   const rate =
-    !total_date || !complete_date
-      ? '- '
+    !total_date || !complete_date || total_date === '🔥'
+      ? 0
       : Math.floor((complete_date / total_date) * 100).toFixed(1);
 
   return (

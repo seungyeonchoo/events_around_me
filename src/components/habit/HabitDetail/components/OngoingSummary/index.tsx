@@ -16,7 +16,10 @@ const OngoingSummary = ({ habit }: OngoingSummaryProps) => {
 
   return (
     <section className="h-[14rem] w-[20rem] flex flex-col justify-between max-sm:w-full max-sm:h-[5rem]">
-      <DateSummary due_date={due_date} curr_date={curr_date} />
+      <DateSummary
+        due_date={due_date}
+        curr_date={curr_date > habit?.daily_status.length ? habit?.daily_status.length : curr_date}
+      />
       <AchievementSummary
         curr_date={curr_date_num as number}
         completed={completed}

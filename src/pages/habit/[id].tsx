@@ -1,5 +1,12 @@
+import HabitTemplate from '@/src/components/habit/HabitTemplate';
+import { mockHabit_3 } from '@/src/lib/mocks/mockData';
+
 const Habit = () => {
-  return <div>habit</div>;
+  return (
+    <main>
+      <HabitTemplate habit={mockHabit_3} />
+    </main>
+  );
 };
 
 export default Habit;
@@ -17,4 +24,5 @@ export default Habit;
 // - Ongoing_summary
 // 2. Status
 // - Status_List
-// - Status_Item (Default = Not Done / Success / Skipped )
+// - Status_Item (Default = Not Done / Success )
+// - 당일에만 Status 수정 가능함

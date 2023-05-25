@@ -11,7 +11,7 @@ const BasicDetail = ({ habit }: BasicDetailProps) => {
   const end_date = getConvertedDate(habit?.end_date);
 
   return (
-    <section className="h-[14rem] flex flex-col items-center w-[45%] max-sm:w-full max-sm:h-[4.5rem] shadow-lg max-sm:border-none max-sm:shadow-none rounded-t-xl overflow-hidden">
+    <section className="h-[14rem] flex flex-col items-center w-[45%] max-sm:w-full max-sm:h-[4.5rem] shadow-lg max-sm:border-none max-sm:shadow-none overflow-hidden">
       <Text
         color="default"
         size="xl"
