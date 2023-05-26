@@ -10,7 +10,7 @@ const OngoingToggle = ({ onChange, ongoing }: OngoingToggleProps) => {
   return (
     <label className="mt-1 px-5 flex justify-end items-center">
       <Text text_tag="span" size="xs" color="secondary" extra_style="mx-3" bold>
-        Show only ongoing habit
+        Show only ongoing
       </Text>
       <CheckBox toggle_size="sm" color="primary" onChange={onChange} checked={ongoing} />
     </label>
