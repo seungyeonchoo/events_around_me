@@ -75,12 +75,6 @@ const SignupInputs = ({
         invalid_message="Last name can not be empty. 👀"
         isValid={inputValidation('lastName', value?.lastName)}
       />
-      {/* <SignupName
-        value={value}
-        onChange={onChange}
-        valid_first={inputValidation('firstName', value?.firstName)}
-        valid_last={inputValidation('lastName', value?.lastName)}
-      /> */}
     </>
   );
 };
