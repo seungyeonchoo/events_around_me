@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
-import HabitDuration from '.';
+import HabitDuration, { HabitDurationProps } from '.';
 
 export default {
   title: 'User/CreateHabit/HabitDuration',
@@ -7,6 +7,8 @@ export default {
   tags: ['autodocs'],
 } as Meta<typeof HabitDuration>;
 
-const Template: StoryFn<typeof HabitDuration> = () => <HabitDuration />;
+const Template: StoryFn<typeof HabitDuration> = (args: HabitDurationProps) => (
+  <HabitDuration {...args} />
+);
 
 export const Default = Template.bind({});

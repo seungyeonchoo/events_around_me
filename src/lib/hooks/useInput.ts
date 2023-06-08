@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from 'react';
 const useInput = <T>(initailInput: T) => {
   const [input, setInput] = useState(initailInput);
 
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };

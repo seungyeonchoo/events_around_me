@@ -18,6 +18,10 @@ export const getCurrDate = (start_date: string, numberOnly?: boolean) => {
   return curr === 0 ? '🔥' : curr;
 };
 
+export const getEndDate = (duration: number) => {
+  return new Date(new Date().setDate(new Date().getDate() + duration)).toDateString();
+};
+
 export const getConvertedDate = (date: string, day?: boolean | undefined) => {
   const getFullYear = new Date(date).getFullYear();
   const getMonth = MONTH[new Date(date).getMonth()];
