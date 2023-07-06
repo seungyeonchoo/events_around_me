@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react';
-import useInput from '../../../../../src/lib/hooks/useInput';
 import useMatch from '../../../../../src/lib/hooks/useMatch';
 import { isValidSignupInput } from '../../../../../src/lib/utils/checkIsValid';
 import AuthButton from '../../common/AuthButton';
@@ -14,17 +13,11 @@ export interface SignupTemplateProps {
     firstName: string;
     lastName: string;
   };
+  // eslint-disable-next-line no-unused-vars
   handleSignupInput: (e: ChangeEvent<HTMLInputElement>) => void;
   handleSignup: () => void;
   duplicationCheck: () => void;
 }
-
-const initialSignUp = {
-  email: '',
-  password: '',
-  firstName: '',
-  lastName: '',
-};
 
 const SignupTemplate = ({
   signupInput,
@@ -32,7 +25,6 @@ const SignupTemplate = ({
   handleSignup,
   duplicationCheck,
 }: SignupTemplateProps) => {
-  const { input: signupInput, handleInput: handleSignupInput } = useInput(initialSignUp);
   const { isMatched, handleIsMatched } = useMatch(false, signupInput?.password);
 
   return (

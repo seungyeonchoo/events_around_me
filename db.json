@@ -27,6 +27,13 @@
       "password": "$2a$10$jKY/B6UE4Hq5hX4ZaKnnTuRXsbjnScEiceg6H/usQ7GFQfnMl/CNm",
       "name": "choo",
       "id": 5
+    },
+    {
+      "email": "cos4338@naver.com",
+      "password": "$2a$10$i7J2xAd7jT.4VCDD83zgBeckRgOEINokOyPkVr0mX7f3S5Pdj6s3K",
+      "firstName": "Seungyeon",
+      "lastName": "Chu",
+      "id": 6
     }
   ],
   "habits": [

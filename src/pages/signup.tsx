@@ -1,5 +1,7 @@
 import SignupTemplate from '@/src/components/auth/signup/SignupTemplate';
+import { useRouter } from 'next/router';
 import useInput from '../lib/hooks/useInput';
+import ApiService from '../lib/service';
 
 const initialSignUp = {
   email: '',
@@ -8,8 +10,26 @@ const initialSignUp = {
   lastName: '',
 };
 
+const API = new ApiService();
+
 const Signup = () => {
-  const { input: signupInput, handleInput: handleSignupInput } = useInput(initialSignUp);
+  const router = useRouter();
+  const {
+    input: signupInput,
+    handleInput: handleSignupInput,
+    resetInput,
+  } = useInput(initialSignUp);
+
+  const fetchUsers = async () => {
+    const res = await API.get('/users', { email: signupInput.email });
+    return res?.length === 0;
+  };
+
+  const handleSignup = async () => {
+    await API.post('/users', signupInput);
+    resetInput();
+    await router.push('/');
+  };
 
   return (
     <>
@@ -17,8 +37,8 @@ const Signup = () => {
         <SignupTemplate
           signupInput={signupInput}
           handleSignupInput={handleSignupInput}
-          handleSignup={() => console.log()}
-          duplicationCheck={() => console.log()}
+          handleSignup={handleSignup}
+          duplicationCheck={fetchUsers}
         />
       </main>
     </>

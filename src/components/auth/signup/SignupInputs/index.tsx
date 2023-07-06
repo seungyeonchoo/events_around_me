@@ -8,6 +8,7 @@ export interface SignupInputsProps {
   value: SignupInput;
   onClick: () => void;
   isMatched: boolean;
+  isDuplicated: boolean;
   // eslint-disable-next-line no-unused-vars
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   // eslint-disable-next-line no-unused-vars
@@ -19,6 +20,7 @@ const SignupInputs = ({
   onClick,
   onChange,
   isMatched,
+  isDuplicated,
   handleIsMatched,
 }: SignupInputsProps) => {
   return (
@@ -27,7 +29,7 @@ const SignupInputs = ({
         value={value}
         onChange={onChange}
         onClick={onClick}
-        isValid={inputValidation('email', value?.email)}
+        isValid={inputValidation('email', value?.email) && !isDuplicated}
       />
       <LabeledInput
         label="password"
