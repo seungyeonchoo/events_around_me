@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import useInput from '../../../../../src/lib/hooks/useInput';
 import useMatch from '../../../../../src/lib/hooks/useMatch';
 import { isValidSignupInput } from '../../../../../src/lib/utils/checkIsValid';
@@ -13,6 +14,7 @@ export interface SignupTemplateProps {
     firstName: string;
     lastName: string;
   };
+  handleSignupInput: (e: ChangeEvent<HTMLInputElement>) => void;
   handleSignup: () => void;
   duplicationCheck: () => void;
 }
@@ -24,7 +26,12 @@ const initialSignUp = {
   lastName: '',
 };
 
-const SignupTemplate = ({ handleSignup, duplicationCheck }: SignupTemplateProps) => {
+const SignupTemplate = ({
+  signupInput,
+  handleSignupInput,
+  handleSignup,
+  duplicationCheck,
+}: SignupTemplateProps) => {
   const { input: signupInput, handleInput: handleSignupInput } = useInput(initialSignUp);
   const { isMatched, handleIsMatched } = useMatch(false, signupInput?.password);
 

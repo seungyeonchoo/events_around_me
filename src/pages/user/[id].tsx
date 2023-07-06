@@ -1,35 +1,37 @@
 import UserTemplate from '@/src/components/user/UserTemplate';
 import { mockUser } from '@/src/lib/mocks/mockData';
 import ApiService from '@/src/lib/service';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const API = new ApiService();
 
-export const getServerSideProps = async () => {
-  const data = await API.get('/users');
+export const getServerSideProps = async (context: any) => {
+  const userID = context?.query.id;
+  const data = await API.get(`/users/${userID}`, { _embed: 'habits' });
 
   return {
     props: {
-      data: data,
+      data,
+      userID,
     },
   };
 };
 
-const User = (props: any) => {
-  console.log(props.data);
+const User = ({ data, userID }: any) => {
+  const router = useRouter();
+  const user =
+    typeof window !== 'undefined' && JSON.parse(sessionStorage.getItem('user') as string);
 
-  const signUp = async () => {
-    await API.post('/users', { email: 'cho433@email.com', password: '1234567889' });
-  };
+  useEffect(() => {
+    if (userID !== user?.id) router.push(`/user/${user?.id}`);
+  }, []);
 
-  const signIn = async () => {
-    return await API.post('/signin', { email: 'cho433@email.com', password: '1234567889' });
-  };
+  console.log(data);
 
   return (
     <main>
       <UserTemplate user={mockUser} />
-      <button onClick={signUp}>signup</button>
-      <button onClick={signIn}>signin</button>
     </main>
   );
 };

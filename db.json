@@ -32,8 +32,8 @@
   "habits": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "userId": 5,
+      "body": "some comment"
     }
   ]
 }

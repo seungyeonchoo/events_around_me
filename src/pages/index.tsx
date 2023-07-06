@@ -12,10 +12,15 @@ const API = new ApiService();
 
 const SignIn = () => {
   const router = useRouter();
+
   const { input: signinInput, handleInput: handleSigninInput } = useInput(initialSignin);
+
   const hadnleSignin = async () => {
     const { data } = await API.post('/signin', signinInput);
-    localStorage.setItem('access_Token', data?.accessToken);
+
+    sessionStorage.setItem('access_Token', data?.accessToken);
+    sessionStorage.setItem('user', JSON.stringify(data?.user));
+
     router.push(`/user/${data?.user?.id}`);
   };
 
