@@ -8,7 +8,7 @@ export interface UserTitleProps {
 
 const UserTitle = ({ user }: UserTitleProps) => {
   return (
-    <section className="my-10 w-full">
+    <section className="mt-10 mb-5 w-full">
       <WelcomeTitle user={user} />
       <CurrentDate />
     </section>

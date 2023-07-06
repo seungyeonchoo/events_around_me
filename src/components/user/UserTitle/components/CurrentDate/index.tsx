@@ -8,7 +8,7 @@ const CurrentDate = () => {
       size="2xl"
       text_tag="p"
       color="secondary"
-      extra_style="text-center mt-10 max-sm:text-2xl"
+      extra_style="text-center mt-5 max-sm:text-2xl"
       bold
     >
       {getConvertedDate(curr, true)}

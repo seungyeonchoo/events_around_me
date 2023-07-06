@@ -22,7 +22,7 @@ const UserHabitList = ({ habits, handleCreateToggle }: UserHabitListProps) => {
   };
 
   return (
-    <section className="h-[30rem] w-[40rem] bg-default max-sm:w-[90%] flex flex-col justify-between shadow-md rounded-t-xl overflow-hidden relative">
+    <section className="h-[30rem] w-[40rem] bg-default_weak max-sm:w-[90%] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative">
       <HabitButton toggle={toggle} onClick={handleToggle} />
       {toggle === 'total' && (
         <OngoingToggle onChange={handleOngoingToggle} ongoing={ongoingToggle} />

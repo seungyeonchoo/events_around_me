@@ -7,6 +7,12 @@ import AuthTitle from '../../common/AuthTitle';
 import SignupInputs from '../SignupInputs';
 
 export interface SignupTemplateProps {
+  signupInput: {
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+  };
   handleSignup: () => void;
   duplicationCheck: () => void;
 }

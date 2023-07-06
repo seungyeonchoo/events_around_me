@@ -1,4 +1,4 @@
-import useInput from '../../../../../src/lib/hooks/useInput';
+import { ChangeEvent } from 'react';
 import { isValidSigninInput } from '../../../../../src/lib/utils/checkIsValid';
 import AuthButton from '../../common/AuthButton';
 import AuthLink from '../../common/AuthLink';
@@ -6,17 +6,12 @@ import AuthTitle from '../../common/AuthTitle';
 import SigninInputs from '../SigninInputs';
 
 export interface SigninTemplateProps {
+  handleSigninInput: (e: ChangeEvent<HTMLInputElement>) => void;
+  signinInput: { email: string; password: string };
   handleSignin: () => void;
 }
 
-const initialSignin = {
-  email: '',
-  password: '',
-};
-
-const SigninTemplate = ({ handleSignin }: SigninTemplateProps) => {
-  const { input: signinInput, handleInput: handleSigninInput } = useInput(initialSignin);
-
+const SigninTemplate = ({ signinInput, handleSigninInput, handleSignin }: SigninTemplateProps) => {
   return (
     <section className="flex flex-col m-auto py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-lg max-sm:w-full max-sm:shadow-none max-sm:px-0 max-sm:border-none">
       <AuthTitle

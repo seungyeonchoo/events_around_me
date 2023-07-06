@@ -4,6 +4,29 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "email": "css@email.com",
+      "password": "$2a$10$wZ1IMa14VZnscbV2tjkJsO9DHhedr5HCxvnY9AGAg07VVFacjVekW",
+      "name": "choo",
+      "id": 2
+    },
+    {
+      "email": "cho433@email.com",
+      "password": "$2a$10$qh1iF2C/u0W6UVmaSyP8Ye2/Qt5M.bRaQYQied/8skyITKJW.BWN2",
+      "id": 3
+    },
+    {
+      "email": "css123@email.com",
+      "password": "$2a$10$ExfY5LXFzSEGOvIvN.UtmO4.NAmjaGKRaBT8Ml1X7JHyGia2qikza",
+      "name": "choo",
+      "id": 4
+    },
+    {
+      "email": "css1234@email.com",
+      "password": "$2a$10$jKY/B6UE4Hq5hX4ZaKnnTuRXsbjnScEiceg6H/usQ7GFQfnMl/CNm",
+      "name": "choo",
+      "id": 5
     }
   ],
   "habits": [
