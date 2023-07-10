@@ -11,12 +11,12 @@ export const getFilteredHabits = (
     return curr_date >= 0 && curr_date <= habit?.daily_status?.length;
   });
 
-  const completed_today = ongoing_today.filter((habit: IHabit) => {
+  const completed_today = ongoing_today?.filter((habit: IHabit) => {
     const curr_date = getCurrDate(habit?.start_date, true) as number;
     return habit?.daily_status[curr_date]?.status === true;
   });
 
-  const uncompleted_today = ongoing_today.filter((habit: IHabit) => {
+  const uncompleted_today = ongoing_today?.filter((habit: IHabit) => {
     const curr_date = getCurrDate(habit?.start_date, true) as number;
     return habit?.daily_status[curr_date]?.status !== true;
   });

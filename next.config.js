@@ -23,10 +23,10 @@ const nextConfig = {
         source: '/users/:path*',
         destination: 'http://localhost:5000/users/:path*',
       },
-      //     {
-      //       source: '/habits/:path*',
-      //       destination: 'http://localhost:5000/habits/:path*',
-      //     },
+      {
+        source: '/habits/:path*',
+        destination: 'http://localhost:5000/habits/:path*',
+      },
     ];
   },
 };

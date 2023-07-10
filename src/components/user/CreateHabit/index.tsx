@@ -12,6 +12,7 @@ export interface CreateHabitProps {
     start_date: string;
     end_date: string;
     description: string;
+    userId: number;
   };
   // eslint-disable-next-line no-unused-vars
   handleHabitInput: (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void;
@@ -19,7 +20,7 @@ export interface CreateHabitProps {
 
 const CreateHabit = ({ onCreate, onCancel, habitInput, handleHabitInput }: CreateHabitProps) => {
   return (
-    <section className="w-[40rem] flex flex-col max-sm:w-full mx-auto">
+    <section className="h-[30rem] w-[40rem] py-5 bg-default_weak max-sm:w-[90%] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative">
       <LabeledInput
         label="title"
         type="text"
@@ -30,6 +31,7 @@ const CreateHabit = ({ onCreate, onCancel, habitInput, handleHabitInput }: Creat
         value={habitInput?.title}
         onChange={handleHabitInput}
         placeholder="Habit Title"
+        isValid={habitInput.title.length > 0}
       />
       <HabitDuration onChange={handleHabitInput} />
       <HabitDescription value={habitInput?.description} onChange={handleHabitInput} />

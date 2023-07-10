@@ -18,7 +18,7 @@ const HabitDuration = ({ onChange }: HabitDurationProps) => {
       </legend>
       <div
         onChange={onChange}
-        className="text-xs flex px-5 justify-between w-full max-sm:w-[90%] max-sm:px-3 max-sm:text-[0.5rem] border border-dark m-auto p-3"
+        className="text-xs flex px-5 justify-between w-full max-sm:w-[90%] max-sm:px-3 max-sm:text-[0.5rem] border border-dark m-auto p-3 bg-white"
       >
         <DurationRadio name="end_date" value={getEndDate(90)} label={90} />
         <DurationRadio name="end_date" value={getEndDate(180)} label={180} />

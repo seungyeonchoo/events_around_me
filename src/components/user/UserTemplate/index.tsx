@@ -1,38 +1,48 @@
 import { IUser } from '@/src/lib/types';
-import useInput from '../../../../src/lib/hooks/useInput';
-import useToggle from '../../../../src/lib/hooks/useToggle';
+import { ChangeEvent } from 'react';
 import CreateHabit from '../CreateHabit';
 import UserHabitList from '../UserHabitList';
 import UserTitle from '../UserTitle';
 
 export interface UserTemplateProps {
   user: IUser;
+  // eslint-disable-next-line no-unused-vars
+  handleHabitInput: (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void;
+  habitInput: {
+    title: string;
+    start_date: string;
+    end_date: string;
+    description: string;
+    userId: number;
+  };
+  createToggle: boolean;
+  handleCreateToggle: () => void;
+  createHabit: () => void;
+  handleCancel: () => void;
 }
 // handleCreateToggle => 클릭 시 해빗 생성 모달
 
-const initialHabit = {
-  title: '',
-  start_date: new Date().toDateString(),
-  end_date: '',
-  description: '',
-};
-
-const UserTemplate = ({ user }: UserTemplateProps) => {
-  const { toggle, handleToggle } = useToggle(false);
-  const { input: habitInput, handleInput: handleHabitInput } = useInput(initialHabit);
-  console.log(habitInput);
+const UserTemplate = ({
+  user,
+  habitInput,
+  handleHabitInput,
+  createToggle,
+  handleCreateToggle,
+  createHabit,
+  handleCancel,
+}: UserTemplateProps) => {
   return (
     <section className="flex flex-col items-center">
       <UserTitle user={user} />
-      {toggle ? (
+      {createToggle ? (
         <CreateHabit
-          onCreate={handleToggle}
-          onCancel={handleToggle}
+          onCreate={createHabit}
+          onCancel={handleCancel}
           handleHabitInput={handleHabitInput}
           habitInput={habitInput}
         />
       ) : (
-        <UserHabitList habits={user?.habits} handleCreateToggle={handleToggle} />
+        <UserHabitList habits={user?.habits} handleCreateToggle={handleCreateToggle} />
       )}
     </section>
   );

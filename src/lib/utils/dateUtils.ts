@@ -15,7 +15,7 @@ export const getCurrDate = (start_date: string, numberOnly?: boolean) => {
 
   if (numberOnly) return curr;
 
-  return curr === 0 ? '🔥' : curr;
+  return curr === 0 ? '🔥' : curr + 1;
 };
 
 export const getEndDate = (duration: number) => {

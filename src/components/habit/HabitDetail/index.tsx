@@ -4,12 +4,13 @@ import OngoingSummary from './components/OngoingSummary';
 
 export interface HabitDetailProps {
   habit: IHabit;
+  handleDelete: () => void;
 }
 
-const HabitDetail = ({ habit }: HabitDetailProps) => {
+const HabitDetail = ({ habit, handleDelete }: HabitDetailProps) => {
   return (
     <section className="mx-auto w-[90%] h-[20rem] flex max-sm:flex-col max-sm:h-[12rem] justify-evenly items-center border-b">
-      <BasicDetail habit={habit} />
+      <BasicDetail habit={habit} handleDelete={handleDelete} />
       <OngoingSummary habit={habit} />
     </section>
   );

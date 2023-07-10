@@ -9,9 +9,9 @@ export interface OngoingSummaryProps {
 
 const OngoingSummary = ({ habit }: OngoingSummaryProps) => {
   const curr_date = getCurrDate(habit?.start_date);
-  const curr_date_num = getCurrDate(habit?.start_date, true);
+  const curr_date_num = (getCurrDate(habit?.start_date, true) as number) + 1;
   const total = habit?.daily_status;
-  const completed = total.filter((status: IDailyStatus) => status.status === true).length;
+  const completed = total?.filter((status: IDailyStatus) => status.status === true).length;
   const due_date = getRemainDate(habit?.end_date);
 
   return (
@@ -23,7 +23,7 @@ const OngoingSummary = ({ habit }: OngoingSummaryProps) => {
       <AchievementSummary
         curr_date={curr_date_num as number}
         completed={completed}
-        total_date={total.length}
+        total_date={total?.length}
       />
     </section>
   );
