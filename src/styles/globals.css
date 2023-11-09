@@ -16,9 +16,6 @@
   }
 }
 
-body {
-  /* color: rgb(var(--foreground-rgb)); */
-  /* background: linear-gradient(to top, transparent, blue); */
-  /* rgb(var(--background-start-rgb)); */
-  /* background-color: #e0e0e0; */
+body:--webkit-scrollbar {
+  display: none;
 }

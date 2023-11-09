@@ -23,3 +23,17 @@ const getDateList = (start_date: string, end_date: string) => {
 };
 
 export default getDateList;
+
+export const getDateSet = (start_date: string, end_date: string) => {
+  const hash = new Map();
+  const start = new Date(start_date);
+  const duration = new Date(end_date).getTime() - new Date(start_date).getTime();
+  const dates = duration / (1000 * 24 * 60 * 60);
+
+  for (let i = 0; i <= dates; i++) {
+    const date = getConvertedDate(new Date(start.setDate(start.getDate() + i)).toDateString());
+    hash.set(date, false);
+  }
+
+  return hash.entries();
+};

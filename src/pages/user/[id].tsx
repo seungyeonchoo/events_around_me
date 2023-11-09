@@ -43,13 +43,20 @@ const User = ({ userID }: any) => {
     API.get(`/users/${user?.id}`, { _embed: 'habits' }),
   );
 
-  const { mutate } = useMutation(() => API.post('/habits', habitInput), {
-    onSuccess: () => {
-      queryClient.invalidateQueries();
-      resetInput();
-      handleCreateToggle();
+  const { mutate } = useMutation(
+    () =>
+      API.post('/habits', {
+        ...habitInput,
+        daily_status: getDateList(habitInput.start_date, habitInput.end_date),
+      }),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries();
+        resetInput();
+        handleCreateToggle();
+      },
     },
-  });
+  );
 
   const handleCancel = () => {
     resetInput();

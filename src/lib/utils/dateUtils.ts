@@ -1,5 +1,5 @@
 const MONTH = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-const DAY = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const DAY = ['일', '월', '화', '수', '목', '금', '토'];
 
 export const getRemainDate = (date: string) => {
   const curr = new Date().getTime();
@@ -16,6 +16,17 @@ export const getCurrDate = (start_date: string, numberOnly?: boolean) => {
   if (numberOnly) return curr;
 
   return curr === 0 ? '🔥' : curr + 1;
+};
+
+export const getTime = () => {
+  const year = new Date().getFullYear();
+  const month = new Date().getMonth() + 1;
+  const date = new Date().getDate();
+  const day = DAY[new Date().getDay()];
+  const hour = new Date().getHours();
+  const minutes = new Date().getMinutes();
+
+  return { year, month, date, day, hour, minutes };
 };
 
 export const getEndDate = (duration: number) => {

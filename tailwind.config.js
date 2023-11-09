@@ -25,6 +25,11 @@ module.exports = {
         dark_strong: '#131212',
         dark_weak: '#514f50',
       },
+      screens: {
+        sm: { max: '819px' },
+        md: { min: '820px', max: '1023px' },
+        lg: { min: '1080px' },
+      },
     },
   },
   plugins: [],

@@ -16,12 +16,16 @@ const StatusItem = ({ id, date, status, end }: StatusItemProps) => {
 
   return (
     <div
-      className={`${status_styles} relative peer w-[2rem] h-[2rem] border m-[0.1rem] text-xs font-bold flex justify-center items-center`}
+      className={`${status_styles} relative peer rounded-full w-[2rem] h-[2rem] border m-[0.1rem] text-xs font-bold flex justify-center items-center`}
     >
       {id}
       {id === end && <span className="italic text-dark absolute -bottom-5 left-0">done!</span>}
-      {id === 1 && <span className="italic absolute -top-5 left-0 text-dark">start!</span>}
-      {curr_date && <span className="absolute w-[2rem] h-[2rem] border-4 border-yellow-500"></span>}
+      {id === 1 && (
+        <span className="italic absolute -top-5 left-0 text-dark rounded-full">start!</span>
+      )}
+      {curr_date && (
+        <span className="absolute w-[2rem] h-[2rem] border-4 border-yellow-500 rounded-full"></span>
+      )}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import AuthTitle from '../../common/AuthTitle';
 import SigninInputs from '../SigninInputs';
 
 export interface SigninTemplateProps {
+  // eslint-disable-next-line no-unused-vars
   handleSigninInput: (e: ChangeEvent<HTMLInputElement>) => void;
   signinInput: { email: string; password: string };
   handleSignin: () => void;
