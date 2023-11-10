@@ -51,9 +51,11 @@ export interface IHabit {
   title: string;
   start_date: string;
   end_date: string;
+  duration: number;
   description: string;
   userId: number;
-  daily_status: IDailyStatus[];
+  daily_status: boolean[];
+  // daily_status: IDailyStatus[];
 }
 
 export interface IDailyStatus {

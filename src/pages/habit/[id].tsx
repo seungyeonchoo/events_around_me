@@ -1,7 +1,6 @@
 import HabitTemplate from '@/src/components/habit/HabitTemplate';
 import ApiService from '@/src/lib/service';
 import { getCurrDate } from '@/src/lib/utils/dateUtils';
-import { getDateSet } from '@/src/lib/utils/getDateList';
 import { useRouter } from 'next/router';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 
@@ -20,15 +19,16 @@ export const getServerSideProps = (context: any) => {
 const Habit = ({ habitId }: any) => {
   const router = useRouter();
   const queryClient = useQueryClient();
+
   const { isLoading, data } = useQuery(['habit', { id: habitId }], () =>
     API.get(`/habits/${habitId}`),
   );
-  const currDate = (getCurrDate(data?.start_date, true) as number) + 1;
-  const currComplete = data?.daily_status?.map((date: any) =>
-    date.id === currDate ? { ...date, status: true } : date,
+  const currDate = getCurrDate(data?.start_date, true) as number;
+  const currComplete = data?.daily_status?.map((date: boolean, idx: number) =>
+    idx === currDate ? true : date,
   );
-
-  console.log(getDateSet(data?.start_date, data?.end_date));
+  console.log(router);
+  // const dateSet = getDateSet(data?.start_date, data?.end_date);
 
   const { mutate: handleComplete } = useMutation(
     () => API.patch(`/habits/${habitId}`, { daily_status: currComplete }),

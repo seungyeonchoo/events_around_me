@@ -37,3 +37,9 @@ export const getDateSet = (start_date: string, end_date: string) => {
 
   return hash.entries();
 };
+
+export const getDateStatus = (duration: number) => {
+  const dates = Array.from({ length: duration }, _ => false);
+
+  return dates;
+};

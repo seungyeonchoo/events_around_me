@@ -2,7 +2,8 @@ import UserTemplate from '@/src/components/user/UserTemplate';
 import useInput from '@/src/lib/hooks/useInput';
 import useToggle from '@/src/lib/hooks/useToggle';
 import ApiService from '@/src/lib/service';
-import getDateList from '@/src/lib/utils/getDateList';
+import { getEndDate } from '@/src/lib/utils/dateUtils';
+import getDateList, { getDateStatus } from '@/src/lib/utils/getDateList';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
@@ -21,6 +22,7 @@ const initialHabit = {
   description: '',
   userId: user?.id,
   daily_status: habitDateList,
+  duration: 0,
 };
 
 export const getServerSideProps = async (context: any) => {
@@ -43,11 +45,14 @@ const User = ({ userID }: any) => {
     API.get(`/users/${user?.id}`, { _embed: 'habits' }),
   );
 
+  console.log(userData);
+
   const { mutate } = useMutation(
     () =>
       API.post('/habits', {
         ...habitInput,
-        daily_status: getDateList(habitInput.start_date, habitInput.end_date),
+        end_date: getEndDate(habitInput.duration),
+        daily_status: getDateStatus(habitInput.duration),
       }),
     {
       onSuccess: () => {

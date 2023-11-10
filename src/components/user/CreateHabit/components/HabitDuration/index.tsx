@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react';
-import { getEndDate } from '../../../../../../src/lib/utils/dateUtils';
 import Text from '../../../../common/Text';
 import DurationRadio from '../DurationRadio';
 
@@ -20,10 +19,10 @@ const HabitDuration = ({ onChange }: HabitDurationProps) => {
         onChange={onChange}
         className="text-xs flex px-5 justify-between w-full max-sm:w-[90%] max-sm:px-3 max-sm:text-[0.5rem] border border-dark m-auto p-3 bg-white"
       >
-        <DurationRadio name="end_date" value={getEndDate(90)} label={90} />
-        <DurationRadio name="end_date" value={getEndDate(180)} label={180} />
-        <DurationRadio name="end_date" value={getEndDate(270)} label={270} />
-        <DurationRadio name="end_date" value={getEndDate(365)} label={365} />
+        <DurationRadio name="duration" value={90} label={90} />
+        <DurationRadio name="duration" value={180} label={180} />
+        <DurationRadio name="duration" value={270} label={270} />
+        <DurationRadio name="duration" value={365} label={365} />
       </div>
     </fieldset>
   );

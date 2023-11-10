@@ -17,7 +17,7 @@ const HabitButton = ({ toggle, onClick }: HabitButtonProps) => {
         disabled={toggle === 'total'}
         responsive
       >
-        🗓
+        전체
       </Button>
       <Button
         color="primary"
@@ -28,7 +28,7 @@ const HabitButton = ({ toggle, onClick }: HabitButtonProps) => {
         disabled={toggle === 'completed'}
         responsive
       >
-        🙆
+        완료 👍
       </Button>
       <Button
         color="primary"
@@ -38,7 +38,7 @@ const HabitButton = ({ toggle, onClick }: HabitButtonProps) => {
         disabled={toggle === 'not_yet'}
         responsive
       >
-        🙅
+        아직 🔥
       </Button>
     </div>
   );

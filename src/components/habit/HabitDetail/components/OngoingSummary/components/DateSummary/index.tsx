@@ -1,7 +1,7 @@
 import Calendar from '../Calendar';
 
 export interface DateSummaryProps {
-  curr_date: number | '🔥';
+  curr_date: number | '🔥' | '완료';
   due_date: number | 'DUE' | 'END';
 }
 

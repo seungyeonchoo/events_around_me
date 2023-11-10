@@ -1,22 +1,19 @@
-import { getRemainDate } from '../../../../../../../../src/lib/utils/dateUtils';
+import { getCurrDate } from '../../../../../../../../src/lib/utils/dateUtils';
 
 export interface DueDateProps {
-  due_date: string;
+  start_date: string;
+  duration: number;
 }
 
-const DueDate = ({ due_date }: DueDateProps) => {
-  const color =
-    getRemainDate(due_date) === 'END'
-      ? 'bg-dark'
-      : getRemainDate(due_date) === 'DUE'
-      ? 'bg-yellow-500'
-      : 'bg-primary';
+const DueDate = ({ duration, start_date }: DueDateProps) => {
+  const curr_date = duration - (getCurrDate(start_date, true) as number);
+  const color = curr_date < 0 ? 'bg-dark' : curr_date === 0 ? 'bg-yellow-500' : 'bg-primary';
 
   return (
     <div
       className={`${color} h-[2rem] w-[2rem] rounded-full text-xs font-bold text-center text-default leading-8`}
     >
-      {getRemainDate(due_date)}
+      {curr_date < 0 ? 'END' : curr_date === 0 ? 'DUE' : curr_date}
     </div>
   );
 };

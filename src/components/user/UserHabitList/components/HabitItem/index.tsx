@@ -1,5 +1,5 @@
 import { IHabit } from '../../../../../../src/lib/types';
-import { getConvertedDate } from '../../../../../../src/lib/utils/dateUtils';
+import { getCurrDate } from '../../../../../../src/lib/utils/dateUtils';
 
 import CompletedStamp from './components/CompletedStamp';
 import DetailButton from './components/DetailButton';
@@ -12,11 +12,13 @@ export interface HabitItemProps {
 }
 
 const HabitItem = ({ habit }: HabitItemProps) => {
-  const currDate = getConvertedDate(new Date().toDateString());
+  const currDate = getCurrDate(habit?.start_date, true) as number;
+
+  console.log(currDate);
 
   return (
     <article className="flex items-center justify-around border border-primary w-[90%] h-[3rem] m-auto rounded-xl shadow-md px-3 my-2 relative">
-      <DueDate due_date={habit?.end_date} />
+      <DueDate duration={habit?.duration} start_date={habit?.start_date} />
       <HabitDate start_date={habit?.start_date} end_date={habit?.end_date} />
       <HabitTitle title={habit?.title} />
       <DetailButton id={habit?.id} />

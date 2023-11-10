@@ -1,14 +1,14 @@
-import { IDailyStatus } from '@/src/lib/types';
-import { getConvertedDate } from '../../../lib/utils/dateUtils';
-
-export interface StatusItemProps extends IDailyStatus {
-  end: number;
+export interface StatusItemProps {
+  id: number;
+  start: string;
+  status: boolean;
 }
 
-const StatusItem = ({ id, date, status, end }: StatusItemProps) => {
-  const curr_date = date === getConvertedDate(new Date().toDateString());
+const StatusItem = ({ id, start, status }: StatusItemProps) => {
+  const currDate = new Date(new Date(start).setDate(new Date(start).getDate() + id)).toDateString();
+  const isCurrDate = currDate === new Date().toDateString();
 
-  const status_true = 'border-primary bg-primary hover:bg-default_weak text-primary';
+  const status_true = 'border-primary bg-primary text-default';
 
   const status_false = 'border-secondary bg-secondary hover:bg-default_weak text-secondary';
 
@@ -18,12 +18,12 @@ const StatusItem = ({ id, date, status, end }: StatusItemProps) => {
     <div
       className={`${status_styles} relative peer rounded-full w-[2rem] h-[2rem] border m-[0.1rem] text-xs font-bold flex justify-center items-center`}
     >
-      {id}
-      {id === end && <span className="italic text-dark absolute -bottom-5 left-0">done!</span>}
-      {id === 1 && (
+      {id + 1}
+      {/* {id === end && <span className="italic text-dark absolute -bottom-5 left-0">done!</span>} */}
+      {id + 1 === 1 && (
         <span className="italic absolute -top-5 left-0 text-dark rounded-full">start!</span>
       )}
-      {curr_date && (
+      {isCurrDate && (
         <span className="absolute w-[2rem] h-[2rem] border-4 border-yellow-500 rounded-full"></span>
       )}
     </div>

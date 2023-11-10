@@ -13,7 +13,7 @@ const BasicDetail = ({ habit, handleDelete }: BasicDetailProps) => {
   const end_date = getConvertedDate(habit?.end_date);
 
   return (
-    <section className="h-[14rem] relative flex flex-col items-center w-[45%] max-sm:w-full max-sm:h-[4.5rem] shadow-lg max-sm:border-none max-sm:shadow-none overflow-hidden">
+    <section className="h-[14rem] relative flex flex-col items-center w-[45%] sm:h-[4rem] sm:w-full max-sm:h-[4.5rem] shadow-lg max-sm:border-none max-sm:shadow-none overflow-hidden">
       <Button
         onClick={handleDelete}
         size="xs"
@@ -41,7 +41,7 @@ const BasicDetail = ({ habit, handleDelete }: BasicDetailProps) => {
       >
         {start_date} ~ {end_date}
       </Text>
-      <Text color="secondary" size="sm" text_tag="p" extra_style="p-2 max-sm:hidden" italic>
+      <Text color="secondary" size="sm" text_tag="p" extra_style="p-2 sm:hidden" italic>
         {habit?.description}
       </Text>
     </section>

@@ -16,7 +16,7 @@ const HabitTemplate = ({ habit, handleComplete, handleDelete }: HabitTemplatePro
     <section>
       <HabitDetail habit={habit} handleDelete={handleDelete} />
       <CompleteButton habit={habit} onClick={handleComplete} />
-      <ListContainer daily_status={habit?.daily_status} />
+      <ListContainer daily_status={habit?.daily_status} start={habit?.start_date} />
       <button className="m-auto" onClick={() => router.push(`/user/${habit?.userId}`)}>
         뒤로가기
       </button>

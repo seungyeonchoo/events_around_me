@@ -16,6 +16,10 @@
   }
 }
 
-body:--webkit-scrollbar {
+section::-webkit-scrollbar {
   display: none;
+}
+
+body {
+  background-color: '#efefef';
 }
