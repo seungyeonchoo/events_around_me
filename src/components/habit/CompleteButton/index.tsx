@@ -17,7 +17,7 @@ const CompleteButton = ({ onClick, habit }: CompleteButtonProps) => {
 
   console.log(curr_date);
   return (
-    <section className="w-[90%] m-auto">
+    <section className="w-[80%] m-auto">
       <Button
         color="primary"
         size="full"

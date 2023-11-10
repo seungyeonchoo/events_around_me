@@ -7,7 +7,7 @@ export interface ListContainerProps {
 
 const ListContainer = ({ daily_status, start }: ListContainerProps) => {
   return (
-    <section className="mx-auto flex flex-wrap w-[80%] py-5 justify-start">
+    <section className="mx-auto grid grid-cols-auto-fill-status gap-1 w-[80%] py-[1rem] px-[1rem] justify-start">
       {daily_status?.map((status: boolean, idx) => (
         <StatusItem key={idx} id={idx} status={status} start={start} />
       ))}

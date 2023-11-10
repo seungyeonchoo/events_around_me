@@ -17,11 +17,20 @@ const BasicDetail = ({ habit, handleDelete }: BasicDetailProps) => {
       <Button
         onClick={handleDelete}
         size="xs"
-        color="secondary"
+        color="primary"
         rounded
         extra_style="absolute right-3 top-1.5"
       >
-        X
+        삭제
+      </Button>
+      <Button
+        link={`/user/${habit?.userId}`}
+        size="xs"
+        color="primary"
+        rounded
+        extra_style="absolute left-3 top-1.5"
+      >
+        뒤로
       </Button>
       <Text
         color="default"

@@ -30,6 +30,9 @@ module.exports = {
         md: { min: '820px', max: '1023px' },
         lg: { min: '1080px' },
       },
+      gridTemplateColumns: {
+        'auto-fill-status': 'repeat(auto-fit, minmax(2rem, 1fr))',
+      },
     },
   },
   plugins: [],

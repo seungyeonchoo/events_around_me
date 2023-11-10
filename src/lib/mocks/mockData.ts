@@ -1,5 +1,4 @@
-import { getCurrDate } from '../utils/dateUtils';
-import getDateList from '../utils/getDateList';
+import { getDateStatus } from '../utils/getDateList';
 
 export const mockHabit_1 = {
   id: 1,
@@ -8,7 +7,7 @@ export const mockHabit_1 = {
   userId: 1,
   title: 'this is first habit...',
   description: 'this is first description',
-  daily_status: getDateList('2022-06-23', '2023-04-21'),
+  daily_status: getDateStatus(90),
 };
 
 export const mockHabit_2 = {
@@ -18,7 +17,7 @@ export const mockHabit_2 = {
   userId: 1,
   title: 'this is second habit...',
   description: 'this is second description',
-  daily_status: getDateList('2023-04-23', new Date().toDateString()),
+  daily_status: getDateStatus(90),
 };
 
 export const mockHabit_3 = {
@@ -28,13 +27,8 @@ export const mockHabit_3 = {
   userId: 1,
   title: 'this is 3rd habit...',
   description: 'this is 3rd description',
-  daily_status: getDateList(
-    new Date().toDateString(),
-    new Date(new Date().setDate(new Date().getDate() + 30)).toDateString(),
-  ),
+  daily_status: getDateStatus(90),
 };
-
-mockHabit_3.daily_status[getCurrDate(mockHabit_3.start_date, true) as number].status = true;
 
 export const mockUser = {
   id: 1,
