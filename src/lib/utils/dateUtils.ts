@@ -1,4 +1,4 @@
-const DAY = ['일', '월', '화', '수', '목', '금', '토'];
+export const DAY = ['일', '월', '화', '수', '목', '금', '토'];
 
 export const getCurrDate = (start_date: string, numberOnly?: boolean) => {
   const timeDiff = new Date().getTime() - new Date(start_date).getTime();

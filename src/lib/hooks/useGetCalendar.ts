@@ -1,3 +1,5 @@
+import { DAY } from '../utils/dateUtils';
+
 const useGetCalendar = (currYear: number, currMonth: number) => {
   const nextYear = currMonth === 12 ? currYear + 1 : currYear;
   const nextMonth = currMonth === 12 ? 1 : currMonth + 1;
@@ -20,9 +22,11 @@ const useGetCalendar = (currYear: number, currMonth: number) => {
   const currDateList = Array.from({ length: dateLength }, (_, idx) => {
     const day = new Date(`${currYear}-${currMonth}-${idx + 1}`).getDay();
     return {
-      day,
+      year: currYear,
+      month: currMonth,
+      day: DAY[day],
       date: idx + 1,
-      detail: `${currYear}-${currMonth}-${idx + 1}`,
+      detail: `${currYear}년 ${currMonth}월 ${idx + 1}일 ${DAY[day]}요일`,
     };
   });
 
@@ -36,9 +40,11 @@ const useGetCalendar = (currYear: number, currMonth: number) => {
     const prevDate = new Date(prevDateTime).getDate();
 
     prevDatesList.push({
-      day: i,
+      year: prevYear,
+      month: prevMonth,
+      day: DAY[i],
       date: prevDate,
-      detail: `${prevYear}-${prevMonth}-${prevDate}`,
+      detail: `${prevYear}년 ${prevMonth}월 ${prevDate}일 ${DAY[i]}요일`,
     });
   }
 
@@ -47,15 +53,17 @@ const useGetCalendar = (currYear: number, currMonth: number) => {
     const nextDate = new Date(nextDateTime).getDate();
 
     nextDatesList.push({
-      day: i,
+      year: nextYear,
+      month: nextMonth,
+      day: DAY[i],
       date: nextDate,
-      detail: `${nextYear}-${nextMonth}-${nextDate}`,
+      detail: `${nextYear}년 ${nextMonth}월 ${nextDate}일 ${DAY[i]}요일`,
     });
   }
 
   const calendar = [...prevDatesList, ...currDateList, ...nextDatesList];
 
-  return { calendar };
+  return { calendar, prevYear, prevMonth, nextYear, nextMonth };
 };
 
 export default useGetCalendar;

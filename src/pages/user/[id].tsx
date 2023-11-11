@@ -45,8 +45,6 @@ const User = ({ userID }: any) => {
     API.get(`/users/${user?.id}`, { _embed: 'habits' }),
   );
 
-  console.log(userData);
-
   const { mutate } = useMutation(
     () =>
       API.post('/habits', {

@@ -63,3 +63,11 @@ export interface IDailyStatus {
   date: string;
   status: boolean;
 }
+
+export interface IDiary {
+  id?: number;
+  userId: number;
+  date: string;
+  content: string;
+  color: string;
+}
