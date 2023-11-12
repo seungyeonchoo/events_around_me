@@ -27,6 +27,10 @@ const nextConfig = {
         source: '/habits/:path*',
         destination: 'http://localhost:5000/habits/:path*',
       },
+      {
+        source: '/diaries/:path*',
+        destination: 'http://localhost:5000/diaries/:path*',
+      },
     ];
   },
 };

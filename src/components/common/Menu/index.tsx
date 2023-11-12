@@ -1,17 +1,26 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const Menu = () => {
+export const getServerSideProps = async () => {
+  const userID =
+    typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
+
+  return {
+    props: {
+      userID,
+    },
+  };
+};
+
+const Menu = ({ userId }: any) => {
   const { pathname } = useRouter();
-  const user =
-    typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string) : null;
   const isCurrentPage = (page: string) =>
     pathname.split('/')[1] === page ? 'text-yellow-300' : 'text-default_weak';
 
   return (
     <div className="w-full h-[14rem] mt-[0.5rem] sm:hidden md:hidden border-t border-b flex flex-col justify-evenly px-[2rem]">
       <Link
-        href={`/user/${user?.id}`}
+        href={`/user/${userId}`}
         className={`${isCurrentPage(
           'user',
         )} w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]`}
@@ -19,7 +28,7 @@ const Menu = () => {
         습관만들기
       </Link>
       <Link
-        href={`/diary/${user?.id}`}
+        href={`/diary/${userId}`}
         className={`${isCurrentPage(
           'diary',
         )} w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]`}
@@ -27,7 +36,7 @@ const Menu = () => {
         일기쓰기
       </Link>
       <Link
-        href={`/mypage/${user?.id}`}
+        href={`/mypage/${userId}`}
         className={`${isCurrentPage(
           'mypage',
         )} w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]`}

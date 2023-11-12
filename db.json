@@ -207,5 +207,14 @@
       "duration": "180",
       "id": 5
     }
+  ],
+  "diaries": [
+    {
+      "id": 1,
+      "userId": 2,
+      "date": "2023-11-12",
+      "content": "test",
+      "color": "bg-yellow-200"
+    }
   ]
 }
