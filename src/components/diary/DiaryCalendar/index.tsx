@@ -4,7 +4,7 @@ import Calendar from './components/Calendar';
 
 interface DiaryCalendarProps {
   // eslint-disable-next-line no-unused-vars
-  handleCurrCalendar: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleCurrCalendar: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 const DiaryCalendar = ({ handleCurrCalendar }: DiaryCalendarProps) => {

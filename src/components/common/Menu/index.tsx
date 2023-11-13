@@ -1,18 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export const getServerSideProps = async () => {
-  const userID =
-    typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
+const userId =
+  typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
 
-  return {
-    props: {
-      userID,
-    },
-  };
-};
-
-const Menu = ({ userId }: any) => {
+const Menu = () => {
   const { pathname } = useRouter();
   const isCurrentPage = (page: string) =>
     pathname.split('/')[1] === page ? 'text-yellow-300' : 'text-default_weak';

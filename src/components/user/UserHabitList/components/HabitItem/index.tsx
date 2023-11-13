@@ -14,8 +14,6 @@ export interface HabitItemProps {
 const HabitItem = ({ habit }: HabitItemProps) => {
   const currDate = getCurrDate(habit?.start_date, true) as number;
 
-  console.log(currDate);
-
   return (
     <article className="flex items-center justify-around border border-primary w-[90%] h-[3rem] m-auto rounded-xl shadow-md px-3 my-2 relative">
       <DueDate duration={habit?.duration} start_date={habit?.start_date} />

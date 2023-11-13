@@ -1,6 +1,6 @@
 export interface CalendarProps {
   title: string;
-  date: number | 'DUE' | 'END' | '🔥';
+  date: number | 'DUE' | 'END' | '🔥' | '완료';
 }
 
 const Calendar = ({ title, date }: CalendarProps) => {

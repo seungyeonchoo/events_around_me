@@ -5,7 +5,7 @@ interface CalendarDateProps {
   curr_year: number;
   curr_month: number;
   // eslint-disable-next-line no-unused-vars
-  handleCurrCalendar: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleCurrCalendar: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 const CalendarDate = ({
@@ -30,7 +30,7 @@ const CalendarDate = ({
       <input
         type="checkbox"
         className="sr-only peer"
-        name="currDate"
+        name="date"
         value={detail}
         onChange={handleCurrCalendar}
       />

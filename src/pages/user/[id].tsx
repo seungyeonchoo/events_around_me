@@ -40,10 +40,13 @@ const User = ({ userID }: any) => {
   const queryClient = useQueryClient();
   const { input: habitInput, handleInput: handleHabitInput, resetInput } = useInput(initialHabit);
   const { toggle: createToggle, handleToggle: handleCreateToggle } = useToggle(false);
-
-  const { data: userData } = useQuery(['user', { id: user?.id }], () =>
+  const { data: userData, isLoading } = useQuery(['user', { id: user?.id }], () =>
     API.get(`/users/${user?.id}`, { _embed: 'habits' }),
   );
+
+  useEffect(() => {
+    if (+userID !== user?.id) router.push(`/user/${user?.id}`);
+  }, []);
 
   const { mutate } = useMutation(
     () =>
@@ -66,9 +69,7 @@ const User = ({ userID }: any) => {
     handleCreateToggle();
   };
 
-  useEffect(() => {
-    if (+userID !== user?.id) router.push(`/user/${user?.id}`);
-  }, []);
+  if (userData === undefined || isLoading) return <div>loading...</div>;
 
   return (
     <main>

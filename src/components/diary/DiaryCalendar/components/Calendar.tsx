@@ -5,7 +5,7 @@ import CalendarHeader from './CalendarHeader';
 
 interface CalendarProps {
   // eslint-disable-next-line no-unused-vars
-  handleCurrCalendar: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleCurrCalendar: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 const Calendar = ({ handleCurrCalendar }: CalendarProps) => {
