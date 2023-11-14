@@ -1,4 +1,5 @@
 import useGetCalendar from '@/src/lib/hooks/useGetCalendar';
+import { IDiary } from '@/src/lib/types';
 import { ChangeEvent, useState } from 'react';
 import CalendarDate from './CalendarDate';
 import CalendarHeader from './CalendarHeader';
@@ -6,9 +7,11 @@ import CalendarHeader from './CalendarHeader';
 interface CalendarProps {
   // eslint-disable-next-line no-unused-vars
   handleCurrCalendar: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  diaries: IDiary[];
+  checkedDate: string;
 }
 
-const Calendar = ({ handleCurrCalendar }: CalendarProps) => {
+const Calendar = ({ handleCurrCalendar, diaries, checkedDate }: CalendarProps) => {
   const year = new Date().getFullYear();
   const month = new Date().getMonth() + 1;
   const [currDate, setCurrDate] = useState<{ year: number; month: number }>({ year, month });
@@ -48,6 +51,8 @@ const Calendar = ({ handleCurrCalendar }: CalendarProps) => {
             curr_month={currDate.month}
             curr_year={currDate.year}
             handleCurrCalendar={handleCurrCalendar}
+            diaries={diaries}
+            checkedDate={checkedDate}
           />
         ))}
       </div>

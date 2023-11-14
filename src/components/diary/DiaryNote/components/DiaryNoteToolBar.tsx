@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react';
-import { UseMutateFunction } from 'react-query';
 import DiaryNoteButtons from './DiaryNoteButtons';
 import DiaryNoteColorTool from './DiaryNoteColorTool';
 
@@ -9,7 +8,8 @@ interface DiaryNoteToolBarProps {
   // eslint-disable-next-line no-unused-vars
   handleBackgroundColor: (e: ChangeEvent<HTMLInputElement>) => void;
   handleEditToggle: () => void;
-  handlePostDiary: UseMutateFunction<any, unknown, void, unknown>;
+  handlePostDiary: () => void;
+  handleDeleteDiary: () => void;
 }
 
 const DiaryNoteToolBar = ({
@@ -17,6 +17,7 @@ const DiaryNoteToolBar = ({
   handleBackgroundColor,
   handleEditToggle,
   handlePostDiary,
+  handleDeleteDiary,
   editToggle,
 }: DiaryNoteToolBarProps) => {
   return (
@@ -28,6 +29,7 @@ const DiaryNoteToolBar = ({
       <DiaryNoteButtons
         handleEditToggle={handleEditToggle}
         handlePostDiary={handlePostDiary}
+        handleDeleteDiary={handleDeleteDiary}
         editToggle={editToggle}
       />
     </section>

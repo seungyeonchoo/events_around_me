@@ -65,7 +65,7 @@ export interface IDailyStatus {
 }
 
 export interface IDiary {
-  id?: number | string;
+  id?: number | null;
   userId?: number;
   date: string;
   content: string;

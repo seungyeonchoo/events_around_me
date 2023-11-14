@@ -2,11 +2,13 @@ interface DiaryNoteButtonsProps {
   editToggle: boolean;
   handleEditToggle: () => void;
   handlePostDiary: () => void;
+  handleDeleteDiary: () => void;
 }
 
 const DiaryNoteButtons = ({
   handleEditToggle,
   handlePostDiary,
+  handleDeleteDiary,
   editToggle,
 }: DiaryNoteButtonsProps) => {
   const handleSaveDiary = () => {
@@ -18,6 +20,11 @@ const DiaryNoteButtons = ({
       className="flex items-center mx-[0.5rem] text-[0.75rem] font-bold text-secondary
     "
     >
+      {editToggle && (
+        <button className="px-[0.1rem] mx-[0.5rem]" onClick={handleDeleteDiary}>
+          초기화
+        </button>
+      )}
       <button
         className="px-[0.1rem] mx-[0.5rem]"
         onClick={editToggle ? handleSaveDiary : handleEditToggle}
