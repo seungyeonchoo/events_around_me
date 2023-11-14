@@ -1,23 +1,17 @@
 import useInput from '@/src/lib/hooks/useInput';
 import useToggle from '@/src/lib/hooks/useToggle';
 import ApiService from '@/src/lib/service';
-import { ChangeEvent, useEffect } from 'react';
-import { useQuery } from 'react-query';
+import { useEffect } from 'react';
+import { useMutation } from 'react-query';
 import DiaryNoteHeader from './components/DiaryNoteHeader';
 import DiaryNoteTextArea from './components/DiaryNoteTextArea';
 import DiaryNoteToolBar from './components/DiaryNoteToolBar';
 
-const API = new ApiService();
 const id =
   typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
 
 interface DiaryNoteProps {
   currDate: string;
-  content: string;
-  backgroundColor: string;
-  // eslint-disable-next-line no-unused-vars
-  handleDiaryInput: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  handlePostDiary: () => void;
 }
 
 const getDiary = async (date: string) => {
@@ -31,23 +25,14 @@ const getDiary = async (date: string) => {
   return await res.json();
 };
 
-const DiaryNote = ({
-  content,
-  currDate,
-  backgroundColor,
-  handleDiaryInput,
-  handlePostDiary,
-}: DiaryNoteProps) => {
+const API = new ApiService();
+
+const DiaryNote = ({ currDate }: DiaryNoteProps) => {
   const { toggle: editToggle, handleToggle: handleEditToggle } = useToggle();
   const [year, month, date, day] = currDate.split(' ');
 
-  const { data: diary, isLoading } = useQuery(['diary', { user: id, date: currDate }], () =>
-    API.get('/diaries/', { userId: id, date: currDate }),
-  );
-
-  const d = { ...diary }[0];
-
   const initialDiaryInput = {
+    id: null,
     userId: id,
     date: currDate,
     content: '',
@@ -56,27 +41,23 @@ const DiaryNote = ({
 
   const { input, handleInput, setInput } = useInput(initialDiaryInput);
 
+  const { mutate: handlePost } = useMutation(() => API.post('diaries', input));
+  const { mutate: handlePatch } = useMutation(() => API.patch(`diaries/${input?.id}`, input));
+
   useEffect(() => {
-    getDiary(currDate).then(diary => {
-      if (diary[0] !== undefined) setInput(diary[0]);
-      else setInput(initialDiaryInput);
-    });
-  }, [input.date]);
+    getDiary(currDate)
+      .then(diary => {
+        if (diary[0]) setInput(diary[0]);
+        else setInput(initialDiaryInput);
+      })
+      .catch(err => console.log(err));
+  }, [currDate]);
 
   console.log(input);
 
-  if (isLoading)
-    return (
-      <section
-        className={`p-[1.5rem] h-[30rem] w-[40rem] sm:w-[90%] md:w-[90%] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative ${backgroundColor}`}
-      >
-        loading...
-      </section>
-    );
-
   return (
     <section
-      className={`p-[1.5rem] h-[30rem] w-[40rem] sm:w-[90%] md:w-[90%] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative ${backgroundColor}`}
+      className={`p-[1.5rem] h-[30rem] w-[40rem] sm:w-[90%] md:w-[90%] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative ${input.color}`}
     >
       <DiaryNoteHeader year={year} month={month} date={date} day={day} />
       <DiaryNoteTextArea
@@ -91,7 +72,7 @@ const DiaryNote = ({
         backgroundColor={input.color}
         handleBackgroundColor={handleInput}
         handleEditToggle={handleEditToggle}
-        handlePostDiary={handlePostDiary}
+        handlePostDiary={input.id ? handlePatch : handlePost}
       />
     </section>
   );

@@ -30,7 +30,7 @@ const CalendarDate = ({
       <input
         type="checkbox"
         className="sr-only peer"
-        name="date"
+        name="currDate"
         value={detail}
         onChange={handleCurrCalendar}
       />
