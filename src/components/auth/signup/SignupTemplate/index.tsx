@@ -35,6 +35,11 @@ const SignupTemplate = ({
         text_color="secondary"
         title_color="primary"
       />
+      <label className="relative mx-auto mb-[2rem]">
+        <input type="file" className="sr-only peer" />
+        <img src="" alt="" className="w-[8rem] h-[8rem] bg-gray-100 rounded-full" />
+        <button className="absolute bottom-1 right-1">+</button>
+      </label>
       <SignupInputs
         value={signupInput}
         isMatched={isMatched}

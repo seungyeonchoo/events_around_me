@@ -1,8 +1,8 @@
 import { IUser } from '@/src/lib/types';
 import { ChangeEvent } from 'react';
+import UserTitle from '../../common/UserTitle';
 import CreateHabit from '../CreateHabit';
 import UserHabitList from '../UserHabitList';
-import UserTitle from '../UserTitle';
 
 export interface UserTemplateProps {
   user: IUser;

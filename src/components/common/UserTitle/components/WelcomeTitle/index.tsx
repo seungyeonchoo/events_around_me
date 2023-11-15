@@ -1,5 +1,5 @@
 import Text from '@/src/components/common/Text';
-import { IUser } from '../../../../../../src/lib/types';
+import { IUser } from '../../../../../lib/types';
 import Navigation from './components/Navigation';
 import ProfileImage from './components/ProfileImage';
 

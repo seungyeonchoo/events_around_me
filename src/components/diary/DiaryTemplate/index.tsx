@@ -47,20 +47,21 @@ const DiaryTemplate = ({ currDate, handleCurrentDate, diaries }: DiaryTemplatePr
 
   const { mutate: handlePost } = useMutation(() => API.post('diaries', input), {
     onSuccess: () => {
-      queryClient.invalidateQueries(['diary', { user: id }]);
+      handleEditToggle();
+      queryClient.invalidateQueries();
     },
   });
 
   const { mutate: handleDelete } = useMutation(() => API.delete(`diaries/${input?.id}`), {
     onSuccess: () => {
-      queryClient.invalidateQueries(['diary', { user: id }]);
+      queryClient.invalidateQueries();
       setInput(initialDiaryInput);
     },
   });
 
   const { mutate: handlePatch } = useMutation(() => API.patch(`diaries/${input?.id}`, input), {
     onSuccess: () => {
-      queryClient.invalidateQueries(['diary', { user: id }]);
+      queryClient.invalidateQueries();
     },
   });
 
@@ -89,7 +90,7 @@ const DiaryTemplate = ({ currDate, handleCurrentDate, diaries }: DiaryTemplatePr
         handleDiary={handleInput}
         handlePost={handlePost}
         handlePatch={handlePatch}
-        handleDelete={handleDelete}
+        handleDelete={editToggle ? () => setInput(initialDiaryInput) : handleDelete}
         currDate={currDate}
         editToggle={editToggle}
         handleEditToggle={handleEditToggle}

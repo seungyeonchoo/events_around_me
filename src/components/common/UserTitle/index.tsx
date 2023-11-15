@@ -1,5 +1,5 @@
 import { IUser } from '@/src/lib/types';
-import Menu from '../../common/Menu';
+import Menu from '../Menu';
 import CurrentInfo from './components/CurrentInfo';
 import WelcomeTitle from './components/WelcomeTitle';
 

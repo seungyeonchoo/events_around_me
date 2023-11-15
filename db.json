@@ -212,9 +212,16 @@
     {
       "id": 1,
       "userId": 2,
-      "date": "2023년 11월 14일 화요일",
-      "content": "test",
+      "date": "2023년 11월 16일 목요일",
+      "content": "tlasdadad",
       "color": "bg-gray-100"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "date": "2023년 11월 17일 금요일",
+      "content": "12124124",
+      "color": "bg-green-100"
     }
   ]
 }
