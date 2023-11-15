@@ -1,4 +1,4 @@
-import { IUser } from '@/src/lib/types';
+import { IHabit, IUser } from '@/src/lib/types';
 import { ChangeEvent } from 'react';
 import UserTitle from '../../common/UserTitle';
 import CreateHabit from '../CreateHabit';
@@ -42,7 +42,7 @@ const UserTemplate = ({
           habitInput={habitInput}
         />
       ) : (
-        <UserHabitList habits={user?.habits} handleCreateToggle={handleCreateToggle} />
+        <UserHabitList habits={user?.habits as IHabit[]} handleCreateToggle={handleCreateToggle} />
       )}
     </section>
   );

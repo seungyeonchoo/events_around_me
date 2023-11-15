@@ -37,6 +37,8 @@ const CalendarDate = ({
       ? 'text-secondary'
       : 'text-primary_strong';
 
+  console.log();
+
   return (
     <label
       className={`relative flex flex-col justify-between mx-1 py-[0.4rem] px-[0.5rem] text-[0.6rem] hover:shadow-lg rounded-[0.25rem] cursor-pointer ${color}`}
@@ -48,6 +50,7 @@ const CalendarDate = ({
         value={detail}
         onChange={handleCurrCalendar}
         checked={checkedDate === detail}
+        disabled={new Date(`${year}-${month}-${date}`) > new Date()}
       />
       <div className="flex justify-between">
         <span key={detail}>{date}</span>

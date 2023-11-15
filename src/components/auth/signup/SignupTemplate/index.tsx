@@ -1,3 +1,4 @@
+import { SignupInput } from '@/src/lib/types';
 import { ChangeEvent } from 'react';
 import useMatch from '../../../../../src/lib/hooks/useMatch';
 import { isValidSignupInput } from '../../../../../src/lib/utils/checkIsValid';
@@ -17,6 +18,7 @@ export interface SignupTemplateProps {
   handleSignupInput: (e: ChangeEvent<HTMLInputElement>) => void;
   handleSignup: () => void;
   duplicationCheck: () => void;
+  setSignupInput: React.Dispatch<React.SetStateAction<SignupInput>>;
 }
 
 const SignupTemplate = ({
@@ -24,6 +26,7 @@ const SignupTemplate = ({
   handleSignupInput,
   handleSignup,
   duplicationCheck,
+  setSignupInput,
 }: SignupTemplateProps) => {
   const { isMatched, handleIsMatched } = useMatch(false, signupInput?.password);
 
@@ -35,17 +38,13 @@ const SignupTemplate = ({
         text_color="secondary"
         title_color="primary"
       />
-      <label className="relative mx-auto mb-[2rem]">
-        <input type="file" className="sr-only peer" />
-        <img src="" alt="" className="w-[8rem] h-[8rem] bg-gray-100 rounded-full" />
-        <button className="absolute bottom-1 right-1">+</button>
-      </label>
       <SignupInputs
         value={signupInput}
         isMatched={isMatched}
         handleIsMatched={handleIsMatched}
         onClick={duplicationCheck}
         onChange={handleSignupInput}
+        setSignupInput={setSignupInput}
       />
       <AuthButton
         onClick={handleSignup}

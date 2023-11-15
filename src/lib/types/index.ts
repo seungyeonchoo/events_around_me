@@ -35,6 +35,7 @@ export interface SigninInput {
 }
 
 export interface SignupInput {
+  profileImage?: string;
   email: string;
   password: string;
   firstName: string;
@@ -43,7 +44,7 @@ export interface SignupInput {
 
 export interface IUser extends SignupInput {
   id: number;
-  habits: IHabit[];
+  habits?: IHabit[];
 }
 
 export interface IHabit {

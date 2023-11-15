@@ -10,6 +10,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 const API = new ApiService();
 const user = typeof window !== 'undefined' && JSON.parse(sessionStorage.getItem('user') as string);
+const token = typeof window !== 'undefined' && (sessionStorage.getItem('access_Token') as string);
 const habitDateList = getDateList(
   new Date().toDateString(),
   new Date(new Date().setDate(new Date().getDate() + 30)).toDateString(),
@@ -40,11 +41,16 @@ const User = ({ userID }: any) => {
   const queryClient = useQueryClient();
   const { input: habitInput, handleInput: handleHabitInput, resetInput } = useInput(initialHabit);
   const { toggle: createToggle, handleToggle: handleCreateToggle } = useToggle(false);
-  const { data: userData, isLoading } = useQuery(['user', { id: user?.id }], () =>
-    API.get(`/users/${user?.id}`, { _embed: 'habits' }),
+  const { data: userData, isLoading } = useQuery(
+    ['user', { id: user?.id }],
+    () => API.get(`/users/${user?.id}`, { _embed: 'habits' }),
+    {
+      enabled: token !== undefined && user?.id !== undefined,
+    },
   );
 
   useEffect(() => {
+    if (!token) router.push('/');
     if (+userID !== user?.id) router.push(`/user/${user?.id}`);
   }, []);
 

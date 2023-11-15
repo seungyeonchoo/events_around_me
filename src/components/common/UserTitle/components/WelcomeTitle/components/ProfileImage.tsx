@@ -1,7 +1,15 @@
-const ProfileImage = () => {
+import Image from 'next/image';
+
+interface ProfileImageProps {
+  profileImage: string | undefined;
+}
+
+const ProfileImage = ({ profileImage }: ProfileImageProps) => {
   return (
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShhEqHk0K-JcCuV4Eyhu-8RfU7VUnAyXOYmSk33MY&s"
+    <Image
+      width={200}
+      height={200}
+      src={profileImage || ''}
       alt="프로필 이미지"
       className="w-[5rem] h-[5rem] rounded-full bg-red-100"
     />

@@ -1,5 +1,6 @@
+import ProfileImage from '@/src/components/common/ProfileImage';
 import { SignupInput } from '@/src/lib/types';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, SetStateAction } from 'react';
 import LabeledInput from '../../../../../src/components/common/LabeledInput';
 import { inputValidation } from '../../../../../src/lib/utils/checkIsValid';
 import SignupEmail from '../SignupEmail';
@@ -12,6 +13,7 @@ export interface SignupInputsProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   // eslint-disable-next-line no-unused-vars
   handleIsMatched: (e: ChangeEvent<HTMLInputElement>) => void;
+  setSignupInput: React.Dispatch<SetStateAction<SignupInput>>;
 }
 
 const SignupInputs = ({
@@ -20,9 +22,11 @@ const SignupInputs = ({
   onChange,
   isMatched,
   handleIsMatched,
+  setSignupInput,
 }: SignupInputsProps) => {
   return (
     <>
+      <ProfileImage setInput={setSignupInput} input={value} />
       <SignupEmail
         value={value}
         onChange={onChange}

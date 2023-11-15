@@ -2,12 +2,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const userId =
-  typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
+  typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
 
 const Menu = () => {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
   const isCurrentPage = (page: string) =>
     pathname.split('/')[1] === page ? 'text-yellow-300' : 'text-default_weak';
+  const handleLogin = () => {
+    sessionStorage.clear();
+    push('/');
+  };
 
   return (
     <div className="w-full h-[14rem] mt-[0.5rem] sm:hidden md:hidden border-t border-b flex flex-col justify-evenly px-[2rem]">
@@ -17,7 +21,7 @@ const Menu = () => {
           'user',
         )} w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]`}
       >
-        습관만들기
+        습관
       </Link>
       <Link
         href={`/diary/${userId}`}
@@ -27,15 +31,18 @@ const Menu = () => {
       >
         일기쓰기
       </Link>
-      <Link
+      {/* <Link
         href={`/mypage/${userId}`}
         className={`${isCurrentPage(
           'mypage',
         )} w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]`}
       >
         마이페이지
-      </Link>
-      <span className="text-default_weak w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]">
+      </Link> */}
+      <span
+        className="text-default_weak w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]"
+        onClick={handleLogin}
+      >
         로그아웃
       </span>
     </div>
