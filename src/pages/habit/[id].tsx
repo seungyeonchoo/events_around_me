@@ -48,9 +48,9 @@ const Habit = ({ habitId }: any) => {
 
   if (isLoading) return <>Loading...</>;
   return (
-    <main>
+    <>
       <HabitTemplate habit={data} handleComplete={handleComplete} handleDelete={handleDelete} />
-    </main>
+    </>
   );
 };
 

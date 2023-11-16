@@ -41,11 +41,13 @@ const Diary = ({ userID }: any) => {
   if (diaryData === undefined || isLoading) return <div>loading</div>;
 
   return (
-    <DiaryTemplate
-      currDate={currDate.currDate}
-      handleCurrentDate={handleCurrDate}
-      diaries={diaryData}
-    />
+    <>
+      <DiaryTemplate
+        currDate={currDate.currDate}
+        handleCurrentDate={handleCurrDate}
+        diaries={diaryData}
+      />
+    </>
   );
 };
 

@@ -9,7 +9,7 @@ const useViewport = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleViewportSize = throttle(() => {
-    handleViewport();
+    dispatch(handleViewport());
   }, 500);
 
   useEffect(() => {

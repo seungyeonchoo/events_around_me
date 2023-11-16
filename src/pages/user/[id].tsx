@@ -78,7 +78,7 @@ const User = ({ userID }: any) => {
   if (userData === undefined || isLoading) return <div>loading...</div>;
 
   return (
-    <main>
+    <>
       <UserTemplate
         user={userData}
         habitInput={habitInput}
@@ -88,7 +88,7 @@ const User = ({ userID }: any) => {
         createHabit={mutate}
         handleCancel={handleCancel}
       />
-    </main>
+    </>
   );
 };
 
