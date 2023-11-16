@@ -1,16 +1,13 @@
-import { IUser } from '@/src/lib/types';
-import Text from '../Text';
+import useViewport from '@/src/lib/hooks/useViewport';
 
-export interface HeaderProps {
-  user: IUser;
-}
-
-const Header = ({ user }: HeaderProps) => {
+const Header = () => {
+  const { width, height } = useViewport();
+  console.log(width, height);
   return (
-    <header className="w-full bg-primary p-3 max-sm:text-center">
-      <Text text_tag="span" size="xl" color="default" bold>
+    <header className="w-full p-3">
+      <h1 className="bg-primary w-[15rem] p-[0.5rem] text-[1.25rem] font-bold text-default_weak text-center mx-auto rounded-[0.25rem]">
         🔥 MAKE MY HABIT
-      </Text>
+      </h1>
     </header>
   );
 };
