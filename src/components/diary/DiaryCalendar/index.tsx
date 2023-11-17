@@ -13,7 +13,7 @@ interface DiaryCalendarProps {
 const DiaryCalendar = ({ handleCurrCalendar, diaries, currDate }: DiaryCalendarProps) => {
   console.log(currDate);
   return (
-    <section className="mb-[0.5rem] w-[25rem] sm:w-[90%] md:w-[90%] lg:mx-[1rem] sm:mb-[1.5rem]">
+    <section className="mb-[0.5rem] w-[25rem] sm:w-[90%] md:w-[90%] lg:mx-[1rem] sm:mb-[0.5rem]">
       <Calendar handleCurrCalendar={handleCurrCalendar} diaries={diaries} checkedDate={currDate} />
       <Menu />
     </section>

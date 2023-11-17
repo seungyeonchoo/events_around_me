@@ -15,7 +15,6 @@ const CompleteButton = ({ onClick, habit }: CompleteButtonProps) => {
   );
   const curr_status = habit?.daily_status[curr_date];
 
-  console.log(curr_date);
   return (
     <section className="w-[80%] m-auto">
       <Button

@@ -27,8 +27,6 @@ const Habit = ({ habitId }: any) => {
   const currComplete = data?.daily_status?.map((date: boolean, idx: number) =>
     idx === currDate ? true : date,
   );
-  console.log(router);
-  // const dateSet = getDateSet(data?.start_date, data?.end_date);
 
   const { mutate: handleComplete } = useMutation(
     () => API.patch(`/habits/${habitId}`, { daily_status: currComplete }),

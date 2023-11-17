@@ -26,7 +26,7 @@ const CalendarDate = ({
   const isToday = detail === `${today.year}년 ${today.month}월 ${today.date}일 ${today.day}요일`;
   const isChecked = detail === checkedDate;
 
-  const currDiary = diaries.filter(diary => {
+  const currDiary = diaries?.filter(diary => {
     return diary.date === `${year}년 ${month}월 ${date}일 ${day}요일`;
   });
 

@@ -21,7 +21,7 @@ export const getServerSideProps = async (context: any) => {
 
 const Diary = ({ userID }: any) => {
   const id =
-    typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
+    typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
   const router = useRouter();
   const initialDate = `${year}년 ${month}월 ${date}일 ${day}요일`;
 
@@ -38,14 +38,13 @@ const Diary = ({ userID }: any) => {
     if (+userID !== id) router.push(`/diary/${id}`);
   }, []);
 
-  if (diaryData === undefined || isLoading) return <div>loading</div>;
-
   return (
     <>
       <DiaryTemplate
         currDate={currDate.currDate}
         handleCurrentDate={handleCurrDate}
         diaries={diaryData}
+        userID={+userID}
       />
     </>
   );

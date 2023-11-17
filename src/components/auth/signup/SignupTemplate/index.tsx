@@ -31,7 +31,7 @@ const SignupTemplate = ({
   const { isMatched, handleIsMatched } = useMatch(false, signupInput?.password);
 
   return (
-    <section className="flex flex-col m-auto py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-lg max-sm:w-full max-sm:shadow-none max-sm:px-0 max-sm:border-none">
+    <section className="flex flex-col m-auto py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-lg sm:w-full sm:shadow-none sm:px-0 sm:border-none">
       <AuthTitle
         title_text="SIGN UP"
         description="Please fill informations below to sign up"

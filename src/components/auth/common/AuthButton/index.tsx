@@ -11,7 +11,7 @@ const AuthButton = ({ onClick, disabled, button_text }: AuthButtonProps) => {
     <Button
       onClick={onClick}
       disabled={disabled}
-      size="2xl"
+      size="xl"
       responsive={true}
       color="primary"
       extra_style="my-10 mx-auto"

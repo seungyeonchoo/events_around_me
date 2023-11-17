@@ -32,7 +32,7 @@ const UserTemplate = ({
   handleCancel,
 }: UserTemplateProps) => {
   return (
-    <section className="flex justify-center sm:flex-col md:flex-col sm:w-full md:w-full sm:items-center md:items-center lg:px-[10%] py-[10%]">
+    <section className="flex justify-center sm:flex-col md:flex-col sm:w-full md:w-full sm:items-center md:items-center lg:px-[10%] sm:py-[1rem] py-[5%]">
       <UserTitle user={user} />
       {createToggle ? (
         <CreateHabit

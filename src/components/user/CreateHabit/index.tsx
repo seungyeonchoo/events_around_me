@@ -20,7 +20,8 @@ export interface CreateHabitProps {
 
 const CreateHabit = ({ onCreate, onCancel, habitInput, handleHabitInput }: CreateHabitProps) => {
   return (
-    <section className="h-[30rem] w-[40rem] py-5 bg-default_weak max-sm:w-[90%] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative">
+    <section className="h-[30rem] w-[40rem] bg-default_weak sm:w-[90%] md:w-[90%] py-[1rem] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative">
+      {/* <section className="h-[30rem] w-[40rem] py-5 bg-default_weak max-sm:w-[90%] flex flex-col justify-between shadow-md rounded-xl overflow-hidden relative"> */}
       <LabeledInput
         label="title"
         type="text"

@@ -41,7 +41,7 @@ const User = ({ userID }: any) => {
   const queryClient = useQueryClient();
   const { input: habitInput, handleInput: handleHabitInput, resetInput } = useInput(initialHabit);
   const { toggle: createToggle, handleToggle: handleCreateToggle } = useToggle(false);
-  const { data: userData, isLoading } = useQuery(
+  const { data: userData } = useQuery(
     ['user', { id: user?.id }],
     () => API.get(`/users/${user?.id}`, { _embed: 'habits' }),
     {
@@ -74,8 +74,6 @@ const User = ({ userID }: any) => {
     resetInput();
     handleCreateToggle();
   };
-
-  if (userData === undefined || isLoading) return <div>loading...</div>;
 
   return (
     <>

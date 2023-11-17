@@ -14,9 +14,6 @@ const OngoingSummary = ({ habit }: OngoingSummaryProps) => {
   const completed = total?.filter((status: boolean) => status === true).length;
   const due_date = habit?.duration - curr_date_num;
 
-  console.log(habit.duration);
-  console.log(curr_date);
-
   return (
     <section className="h-[14rem] w-[20rem] flex flex-col justify-between max-sm:w-full max-sm:h-[5rem]">
       <DateSummary
