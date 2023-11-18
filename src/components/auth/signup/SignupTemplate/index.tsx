@@ -33,8 +33,8 @@ const SignupTemplate = ({
   return (
     <section className="flex flex-col m-auto py-10 px-5 border border-primary w-[30rem] rounded-3xl shadow-lg sm:w-full sm:shadow-none sm:px-0 sm:border-none">
       <AuthTitle
-        title_text="SIGN UP"
-        description="Please fill informations below to sign up"
+        title_text="회원가입"
+        description="회원 가입을 위해 아래 정보들을 입력해 주세요."
         text_color="secondary"
         title_color="primary"
       />
@@ -49,9 +49,9 @@ const SignupTemplate = ({
       <AuthButton
         onClick={handleSignup}
         disabled={!isValidSignupInput(signupInput)}
-        button_text="SIGN UP"
+        button_text="회원가입"
       />
-      <AuthLink text="already have accout?" link="/" link_text="SIGN IN" />
+      <AuthLink text="회원이신가요?" link="/" link_text="로그인 페이지로" />
     </section>
   );
 };

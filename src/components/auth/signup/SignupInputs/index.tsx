@@ -34,49 +34,49 @@ const SignupInputs = ({
         isValid={inputValidation('email', value?.email)}
       />
       <LabeledInput
-        label="password"
+        label="비밀번호"
         type="password"
         name="password"
         value={value?.password}
         onChange={onChange}
         input_size="full"
         responsive
-        placeholder="password"
+        placeholder="비밀번호"
         isValid={inputValidation('password', value?.password)}
-        invalid_message="👀 8 - 16 (character / special symbol / number)"
+        invalid_message="👀 8 - 16 (문자 / 특수문자 / 숫자)"
       />
       <LabeledInput
-        label="confirm password"
+        label="비밀번호 확인"
         type="password"
         onChange={handleIsMatched}
         input_size="full"
         responsive
-        placeholder="confirm password"
+        placeholder="비밀번호 확인"
         isValid={isMatched}
-        invalid_message="🤔 input is not same with password"
+        invalid_message="🤔 입력하신 비밀번호가 일치하지 않습니다."
       />
       <LabeledInput
-        label="first name"
+        label="성"
         type="text"
         name="firstName"
         value={value?.firstName}
         onChange={onChange}
         input_size="full"
         responsive
-        placeholder="First Name"
-        invalid_message="First name can not be empty. 👀"
+        placeholder="성"
+        invalid_message="Firstname can not be empty. 👀"
         isValid={inputValidation('firstName', value?.firstName)}
       />
       <LabeledInput
-        label="last name"
+        label="이름"
         type="text"
         name="lastName"
         value={value?.lastName}
         onChange={onChange}
         input_size="full"
         responsive
-        placeholder="Last Name"
-        invalid_message="Last name can not be empty. 👀"
+        placeholder="이름"
+        invalid_message="Lastname can not be empty. 👀"
         isValid={inputValidation('lastName', value?.lastName)}
       />
     </>

@@ -17,7 +17,7 @@ const Menu = ({ id, handleToggle }: MenuProps) => {
 
   if (typeof window === 'undefined') return <div />;
   return (
-    <section className="absolute flex flex-col top-[4rem] w-full h-full bg-gray-50 z-10 py-[5rem]">
+    <div className="absolute flex flex-col top-[4rem] w-full h-full bg-gray-50 z-10 py-[5rem]">
       <Link
         href={`/user/${id}`}
         className="p-[1rem] text-primary hover:text-primary_strong m-[2rem] border-b text-[1.5rem] font-bold text-center"
@@ -38,7 +38,7 @@ const Menu = ({ id, handleToggle }: MenuProps) => {
       >
         Logout
       </button>
-    </section>
+    </div>
   );
 };
 

@@ -15,7 +15,7 @@ const SignupEmail = ({ value, onChange, onClick, isValid }: SignupEmailProps) =>
   return (
     <div className="m-auto flex justify-between w-full items-center relative ">
       <InputWithLabel
-        label="email"
+        label="이메일"
         type="email"
         name="email"
         value={value?.email}
@@ -23,7 +23,7 @@ const SignupEmail = ({ value, onChange, onClick, isValid }: SignupEmailProps) =>
         input_size="full"
         responsive
         placeholder="email@example.com"
-        invalid_message="👀 please enter valid email"
+        invalid_message="👀 유효한 이메일 주소를 입력해 주세요."
         isValid={isValid}
       />
       <Button

@@ -13,27 +13,28 @@ const SigninInputs = ({ value, onChange }: SigninInputsProps) => {
   return (
     <>
       <LabeledInput
-        label="email"
+        label="이메일"
         type="email"
         name="email"
         onChange={onChange}
+        value={value.email}
         input_size="full"
         responsive
-        placeholder="email"
+        placeholder="이메일"
         isValid={inputValidation('email', value?.email)}
-        invalid_message="Please enter valid email. 👀"
+        invalid_message="유효한 이메일 주소를 입력해 주세요. 👀"
       />
       <LabeledInput
-        label="password"
+        label="비밀번호"
         type="password"
         name="password"
         value={value?.password}
         onChange={onChange}
         input_size="full"
         responsive
-        placeholder="password"
+        placeholder="비밀번호"
         isValid={inputValidation('password', value?.password)}
-        invalid_message="8 - 16 (character / special symbol / number). 👀"
+        invalid_message="8 - 16 (문자 / 특수문자 / 숫자). 👀"
       />
     </>
   );

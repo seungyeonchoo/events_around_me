@@ -29,16 +29,9 @@ const Menu = () => {
           'diary',
         )} w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]`}
       >
-        일기쓰기
+        다이어리
       </Link>
-      {/* <Link
-        href={`/mypage/${userId}`}
-        className={`${isCurrentPage(
-          'mypage',
-        )} w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]`}
-      >
-        마이페이지
-      </Link> */}
+
       <span
         className="text-default_weak w-full text-center py-[0.5rem] font-bold hover:text-yellow-300 cursor-pointer bg-primary_weak rounded-[1rem]"
         onClick={handleLogin}

@@ -3,7 +3,7 @@ import Button from '../../../../../src/components/common/Button';
 export interface AuthButtonProps {
   onClick: () => void;
   disabled: boolean;
-  button_text: 'SIGN IN' | 'SIGN UP';
+  button_text: '로그인' | '회원가입';
 }
 
 const AuthButton = ({ onClick, disabled, button_text }: AuthButtonProps) => {

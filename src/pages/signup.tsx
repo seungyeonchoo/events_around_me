@@ -36,8 +36,6 @@ const Signup = () => {
     },
   });
 
-  console.log(signupInput);
-
   return (
     <>
       <main className="flex items-center my-10">

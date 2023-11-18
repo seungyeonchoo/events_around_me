@@ -1,15 +1,15 @@
-import DiaryTemplate from '@/src/components/diary/DiaryTemplate';
-import useInput from '@/src/lib/hooks/useInput';
-import ApiService from '@/src/lib/service';
-import { getTime } from '@/src/lib/utils/dateUtils';
+import { NextPageContext } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 
-const API = new ApiService();
-const { year, month, date, day } = getTime();
+import DiaryTemplate from '@/src/components/diary/DiaryTemplate';
+import useInput from '@/src/lib/hooks/useInput';
+import ApiService from '@/src/lib/service';
+import { getTime } from '@/src/lib/utils/dateUtils';
+import { id, token } from '@/src/lib/utils/storage';
 
-export const getServerSideProps = async (context: any) => {
+export const getServerSideProps = async (context: NextPageContext) => {
   const userID = context?.query.id;
 
   return {
@@ -20,21 +20,21 @@ export const getServerSideProps = async (context: any) => {
 };
 
 const Diary = ({ userID }: any) => {
-  const id =
-    typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
+  const API = new ApiService();
+  const { year, month, date, day } = getTime();
   const router = useRouter();
   const initialDate = `${year}년 ${month}월 ${date}일 ${day}요일`;
 
-  const { data: diaryData, isLoading } = useQuery(
+  const { data: diaryData } = useQuery(
     ['diary', { user: userID }],
     () => API.get(`/diaries`, { userId: userID }),
     { enabled: +userID === id },
   );
 
-  console.log(diaryData);
   const { input: currDate, handleInput: handleCurrDate } = useInput({ currDate: initialDate });
 
   useEffect(() => {
+    if (!token) router.push('/');
     if (+userID !== id) router.push(`/diary/${id}`);
   }, []);
 
