@@ -7,6 +7,13 @@ export interface WelcomeTitleProps {
 }
 
 const WelcomeTitle = ({ user }: WelcomeTitleProps) => {
+  if (user?.firstName === undefined)
+    return (
+      <section className="w-[25rem] h-[8rem] bg-secondary flex items-center rounded-[0.75rem] sm:w-full md:w-full justify-evenly">
+        loading...
+      </section>
+    );
+
   return (
     <section className="w-[25rem] h-[8rem] bg-secondary flex items-center rounded-[0.75rem] sm:w-full md:w-full justify-evenly">
       <ProfileImage profileImage={user?.profileImage} />

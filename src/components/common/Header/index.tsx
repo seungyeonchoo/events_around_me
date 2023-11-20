@@ -1,20 +1,15 @@
-import useToggle from '@/src/lib/hooks/useToggle';
-import useViewport from '@/src/lib/hooks/useViewport';
-import { id } from '@/src/lib/utils/storage';
+import { useRouter } from 'next/router';
 import Logo from './components/Logo';
-import Menu from './components/Menu';
-import MenuButton from './components/MenuButton';
+import Nav from './components/Nav';
 
 const Header = () => {
-  const { toggle, handleToggle } = useToggle();
-  const { width } = useViewport();
+  const { pathname } = useRouter();
 
   return (
     <>
-      <header className="flex justify-evenly w-full p-3">
-        <MenuButton onClick={handleToggle} />
+      <header className="flex items-center justify-around w-full py-[1rem]">
         <Logo />
-        {toggle && <Menu id={id} handleToggle={handleToggle} />}
+        {pathname !== '/' && <Nav />}
       </header>
     </>
   );

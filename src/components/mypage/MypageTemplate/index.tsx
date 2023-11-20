@@ -1,7 +1,7 @@
 import { IUser } from '@/src/lib/types';
 import { useState } from 'react';
 import ProfileImage from '../../common/ProfileImage';
-import UserTitle from '../../common/UserTitle';
+import UserTitle from '../../user/UserTitle';
 
 interface MypageTemplateProps {
   user: IUser;

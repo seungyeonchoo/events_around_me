@@ -1,5 +1,4 @@
 import { IUser } from '@/src/lib/types';
-import Menu from '../Menu';
 import CurrentInfo from './components/CurrentInfo';
 import WelcomeTitle from './components/WelcomeTitle';
 
@@ -12,7 +11,7 @@ const UserTitle = ({ user }: UserTitleProps) => {
     <section className="mb-[0.5rem] w-[25rem] sm:w-[90%] md:w-[90%] lg:mx-[1rem]">
       <WelcomeTitle user={user} />
       <CurrentInfo />
-      <Menu />
+      {/* <Menu /> */}
     </section>
   );
 };
