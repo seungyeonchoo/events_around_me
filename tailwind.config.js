@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
@@ -24,6 +27,14 @@ module.exports = {
         dark: '#333132',
         dark_strong: '#131212',
         dark_weak: '#514f50',
+      },
+      screens: {
+        sm: { max: '819px' },
+        md: { min: '820px', max: '1024px' },
+        lg: { min: '1025px' },
+      },
+      gridTemplateColumns: {
+        'auto-fill-status': 'repeat(auto-fit, minmax(2rem, 1fr))',
       },
     },
   },
