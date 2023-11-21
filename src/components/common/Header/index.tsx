@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex items-center justify-around w-full py-[1rem]">
+      <header className="flex items-center justify-around w-full py-[1rem] border-b shadow-md">
         <Logo />
         {pathname !== '/' && <Nav />}
       </header>

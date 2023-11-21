@@ -19,6 +19,7 @@ export interface UserTemplateProps {
   handleCreateToggle: () => void;
   createHabit: () => void;
   handleCancel: () => void;
+  isLoading: boolean;
 }
 // handleCreateToggle => 클릭 시 해빗 생성 모달
 
@@ -30,6 +31,7 @@ const UserTemplate = ({
   handleCreateToggle,
   createHabit,
   handleCancel,
+  isLoading,
 }: UserTemplateProps) => {
   return (
     <section className="flex justify-center sm:flex-col md:flex-col sm:w-full md:w-full sm:items-center md:items-center lg:px-[10%] sm:py-[1rem] py-[5%]">
@@ -42,7 +44,11 @@ const UserTemplate = ({
           habitInput={habitInput}
         />
       ) : (
-        <UserHabitList habits={user?.habits as IHabit[]} handleCreateToggle={handleCreateToggle} />
+        <UserHabitList
+          habits={user?.habits as IHabit[]}
+          handleCreateToggle={handleCreateToggle}
+          isLoading={isLoading}
+        />
       )}
     </section>
   );

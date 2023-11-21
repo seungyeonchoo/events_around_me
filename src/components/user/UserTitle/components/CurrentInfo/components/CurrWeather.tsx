@@ -1,3 +1,4 @@
+import Spinner from '@/public/svgs/icon _spinner.svg';
 import useGetLocation from '@/src/lib/hooks/useGetLocation';
 import axios from 'axios';
 import { useQuery } from 'react-query';
@@ -29,11 +30,19 @@ const CurrWeather = () => {
   const lat = location?.latitude.toFixed(2);
   const lon = location?.longitude.toFixed(2);
 
-  const key = 'd8dcf150f2c332dd558584ef2152425c';
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=kr&units=metric`;
+  const appid = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+  const url = process.env.NEXT_PUBLIC_WEATHER_BASE_URL;
 
   const getWeather = async () => {
-    const res = await axios.get(url);
+    const res = await axios.get(url as string, {
+      params: {
+        lat,
+        lon,
+        appid,
+        lang: 'kr',
+        units: 'metric',
+      },
+    });
 
     return res;
   };
@@ -42,11 +51,11 @@ const CurrWeather = () => {
     enabled: location?.latitude !== undefined && typeof window !== 'undefined',
   });
 
-  console.log(data?.data);
-
   if (isLoading || data === undefined)
     return (
-      <section className="w-[48%] h-[7rem] bg-primary_weak rounded-[0.75rem]">loading...</section>
+      <section className="w-[48%] h-[7rem] bg-primary_weak rounded-[0.75rem] flex items-center">
+        <Spinner className="mx-auto animate-spin-slow" />
+      </section>
     );
 
   return (

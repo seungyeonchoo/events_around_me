@@ -10,9 +10,10 @@ import OngoingToggle from './components/OngoingToggle';
 export interface UserHabitListProps {
   habits: IHabit[];
   handleCreateToggle: () => void;
+  isLoading: boolean;
 }
 
-const UserHabitList = ({ habits, handleCreateToggle }: UserHabitListProps) => {
+const UserHabitList = ({ habits, handleCreateToggle, isLoading }: UserHabitListProps) => {
   const { toggle: ongoingToggle, handleToggle: handleOngoingToggle } = useToggle(false);
 
   const [toggle, setToggle] = useState<'total' | 'completed' | 'not_yet'>('total');
@@ -27,7 +28,10 @@ const UserHabitList = ({ habits, handleCreateToggle }: UserHabitListProps) => {
       {toggle === 'total' && (
         <OngoingToggle onChange={handleOngoingToggle} ongoing={ongoingToggle} />
       )}
-      <HabitContainer habits={getFilteredHabits(habits, ongoingToggle, toggle)} />
+      <HabitContainer
+        habits={getFilteredHabits(habits, ongoingToggle, toggle)}
+        isLoading={isLoading}
+      />
       <NewHabit handleNewHabitToggle={handleCreateToggle} />
     </section>
   );

@@ -1,3 +1,4 @@
+import Spinner from '@/public/svgs/icon _spinner.svg';
 import HabitTemplate from '@/src/components/habit/HabitTemplate';
 import ApiService from '@/src/lib/service';
 import { getCurrDate } from '@/src/lib/utils/dateUtils';
@@ -57,10 +58,13 @@ const Habit = ({ habitId }: any) => {
     if (data?.userId !== undefined && id !== data?.userId) router.push(`/user/${id}`);
   }, []);
 
-  console.log(id, data?.userId);
-
   if (isError) return <div>에러가 발생했습니다. 다시 시도해 주세요.</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <section className="relative h-[90vh] flex flex-col justify-center sm:w-full md:w-full sm:items-center md:items-center lg:px-[10%] sm:py-0 md:py-0 pb-[5%]">
+        <Spinner className="m-auto animate-spin-slow fill-primary" />
+      </section>
+    );
 
   return (
     <>

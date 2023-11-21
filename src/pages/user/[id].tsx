@@ -38,13 +38,17 @@ const User = ({ userID }: any) => {
 
   const { toggle: createToggle, handleToggle: handleCreateToggle } = useToggle(false);
 
-  const { data: userData } = useQuery(
-    ['user', { id: id }],
-    () => API.get(`/users/${id}`, { _embed: 'habits' }),
-    {
-      enabled: token !== undefined && id !== undefined,
+  const {
+    data: userData,
+    isLoading,
+    isError,
+    error,
+  } = useQuery(['user', { id: id }], () => API.get(`/userss/${id}`, { _embed: 'habits' }), {
+    enabled: token !== undefined && id !== undefined,
+    onError: error => {
+      throw error;
     },
-  );
+  });
 
   useEffect(() => {
     if (!token) router.push('/');
@@ -82,6 +86,7 @@ const User = ({ userID }: any) => {
         handleCreateToggle={handleCreateToggle}
         createHabit={mutate}
         handleCancel={handleCancel}
+        isLoading={isLoading}
       />
     </>
   );
