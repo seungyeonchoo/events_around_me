@@ -7,7 +7,6 @@ import DiaryTemplate from '@/src/components/diary/DiaryTemplate';
 import useInput from '@/src/lib/hooks/useInput';
 import ApiService from '@/src/lib/service';
 import { getTime } from '@/src/lib/utils/dateUtils';
-import { id, token } from '@/src/lib/utils/storage';
 
 export const getServerSideProps = async (context: NextPageContext) => {
   const userID = context?.query.id;
@@ -23,6 +22,9 @@ const Diary = ({ userID }: any) => {
   const API = new ApiService();
   const { year, month, date, day } = getTime();
   const router = useRouter();
+  const isRendered = typeof window !== 'undefined';
+  const token = isRendered ? sessionStorage.getItem('access_Token') : null;
+  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
   const initialDate = `${year}년 ${month}월 ${date}일 ${day}요일`;
 
   const { data: diaryData } = useQuery(

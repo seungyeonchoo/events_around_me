@@ -15,12 +15,10 @@ interface DiaryTemplateProps {
   userID: number;
 }
 
-const id =
-  typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
-
-const API = new ApiService();
-
 const DiaryTemplate = ({ currDate, handleCurrentDate, diaries, userID }: DiaryTemplateProps) => {
+  const API = new ApiService();
+  const isRendered = typeof window !== 'undefined';
+  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
   const { toggle: editToggle, handleToggle: handleEditToggle, setToggle } = useToggle();
 
   const queryClient = useQueryClient();
@@ -67,8 +65,6 @@ const DiaryTemplate = ({ currDate, handleCurrentDate, diaries, userID }: DiaryTe
   useEffect(() => {
     setToggle(false);
   }, [currDate]);
-
-  console.log(input);
 
   return (
     <section className="relative flex justify-center sm:flex-col md:flex-col sm:w-full md:w-full sm:items-center md:items-center lg:px-[10%] sm:py-[1rem] py-[5%]">

@@ -4,7 +4,6 @@ import useToggle from '@/src/lib/hooks/useToggle';
 import ApiService from '@/src/lib/service';
 import { getEndDate } from '@/src/lib/utils/dateUtils';
 import { getDateStatus } from '@/src/lib/utils/getDateList';
-import { id, token } from '@/src/lib/utils/storage';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
@@ -20,8 +19,11 @@ export const getServerSideProps = async (context: any) => {
 };
 
 const User = ({ userID }: any) => {
+  const isRendered = typeof window !== 'undefined';
+  const token = isRendered ? sessionStorage.getItem('access_Token') : null;
+  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
   const API = new ApiService();
-  const router = useRouter();
+  const { pathname, push } = useRouter();
   const queryClient = useQueryClient();
 
   const initialHabit = {
@@ -38,22 +40,18 @@ const User = ({ userID }: any) => {
 
   const { toggle: createToggle, handleToggle: handleCreateToggle } = useToggle(false);
 
-  const {
-    data: userData,
-    isLoading,
-    isError,
-    error,
-  } = useQuery(['user', { id: id }], () => API.get(`/userss/${id}`, { _embed: 'habits' }), {
-    enabled: token !== undefined && id !== undefined,
-    onError: error => {
-      throw error;
+  const { data: userData, isLoading } = useQuery(
+    ['user', { id: id }],
+    () => API.get(`/users/${id}`, { _embed: 'habits' }),
+    {
+      enabled: token !== undefined && id !== undefined,
     },
-  });
+  );
 
   useEffect(() => {
-    if (!token) router.push('/');
-    if (+userID !== id) router.push(`/user/${id}`);
-  }, []);
+    if (!token) push('/');
+    if (+userID !== id) push(`/user/${id}`);
+  }, [token]);
 
   const { mutate } = useMutation(
     () =>

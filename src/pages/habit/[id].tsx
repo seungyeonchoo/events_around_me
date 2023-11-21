@@ -2,12 +2,9 @@ import Spinner from '@/public/svgs/icon _spinner.svg';
 import HabitTemplate from '@/src/components/habit/HabitTemplate';
 import ApiService from '@/src/lib/service';
 import { getCurrDate } from '@/src/lib/utils/dateUtils';
-import { id } from '@/src/lib/utils/storage';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-
-const API = new ApiService();
 
 export const getServerSideProps = (context: any) => {
   const habitId = context?.query.id;
@@ -20,8 +17,12 @@ export const getServerSideProps = (context: any) => {
 };
 
 const Habit = ({ habitId }: any) => {
+  const API = new ApiService();
   const router = useRouter();
   const queryClient = useQueryClient();
+  const isRendered = typeof window !== 'undefined';
+  const token = isRendered ? sessionStorage.getItem('access_Token') : null;
+  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
 
   const { isLoading, data, isError } = useQuery(
     ['habit', { id: habitId }],
@@ -55,6 +56,7 @@ const Habit = ({ habitId }: any) => {
   });
 
   useEffect(() => {
+    if (!token) router.push('/');
     if (data?.userId !== undefined && id !== data?.userId) router.push(`/user/${id}`);
   }, []);
 

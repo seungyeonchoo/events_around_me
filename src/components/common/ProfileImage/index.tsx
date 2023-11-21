@@ -18,13 +18,13 @@ const ProfileImage = <T extends InputType>({ input, setInput }: ProfileImageProp
   }, [uploadedFiles]);
 
   return (
-    <label className="relative w-[10rem] h-[10rem] rounded-full shadow-lg mx-auto cursor-pointer">
+    <label className="relative rounded-full shadow-lg mx-auto cursor-pointer">
       <input type="file" name="profileImage" className="sr-only" onChange={handleUploadFiles} />
       <Image
         width={200}
         height={200}
-        className="bg-gray-200 rounded-full w-[10rem] h-[10rem]"
-        src={(uploadedFiles as string) || input.profileImage || ''}
+        className="bg-gray-200 rounded-full w-[5rem] h-[5rem]"
+        src={(uploadedFiles as string) || '/svgs/icon_profile.svg'}
         alt="user-profile"
       />
     </label>

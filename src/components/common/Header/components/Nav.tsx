@@ -1,10 +1,11 @@
 import DiaryIcon from '@/public/svgs/icon _diary.svg';
 import HabitIcon from '@/public/svgs/icon _habit.svg';
 import LogoutIcon from '@/public/svgs/icon _sign-out.svg';
-import { id } from '@/src/lib/utils/storage';
 import { useRouter } from 'next/router';
 
 const Nav = () => {
+  const isRendered = typeof window !== 'undefined';
+  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
   const { push, pathname } = useRouter();
   const handleToHabit = () => {
     push(`/user/${id}`);
