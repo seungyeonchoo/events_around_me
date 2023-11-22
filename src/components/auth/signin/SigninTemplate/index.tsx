@@ -14,10 +14,6 @@ export interface SigninTemplateProps {
   errorStatus: number;
 }
 
-const ERROR_MESSAGE: { [key: number]: string } = {
-  400: '이메일 혹은 비밀번호가 일치하지 않습니다.',
-};
-
 const SigninTemplate = ({
   signinInput,
   handleSigninInput,
@@ -35,7 +31,10 @@ const SigninTemplate = ({
       />
       {isError && (
         <div className="text-[0.75rem] mx-auto border border-secondary p-[0.75rem] bg-secondary_weak text-white font-bold">
-          {errorStatus} : {ERROR_MESSAGE[errorStatus]}
+          {errorStatus} :
+          {errorStatus === 400
+            ? ' 이메일 혹은 비밀번호가 일치하지 않습니다.'
+            : ' 오류가 발생하였습니다. 다시 시도해주세요.'}
         </div>
       )}
       <SigninInputs value={signinInput} onChange={handleSigninInput} />

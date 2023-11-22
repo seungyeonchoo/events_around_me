@@ -14,6 +14,7 @@ export interface UserTemplateProps {
     end_date: string;
     description: string;
     userId: number;
+    duration: number;
   };
   createToggle: boolean;
   handleCreateToggle: () => void;

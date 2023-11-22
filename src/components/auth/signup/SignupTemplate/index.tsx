@@ -19,6 +19,8 @@ export interface SignupTemplateProps {
   handleSignup: () => void;
   duplicationCheck: () => void;
   setSignupInput: React.Dispatch<React.SetStateAction<SignupInput>>;
+  isError: boolean;
+  errorStatus?: { errorCode: number; errorMessage: string };
 }
 
 const SignupTemplate = ({
@@ -27,6 +29,8 @@ const SignupTemplate = ({
   handleSignup,
   duplicationCheck,
   setSignupInput,
+  errorStatus,
+  isError,
 }: SignupTemplateProps) => {
   const { isMatched, handleIsMatched } = useMatch(false, signupInput?.password);
 
@@ -38,6 +42,11 @@ const SignupTemplate = ({
         text_color="secondary"
         title_color="primary"
       />
+      {isError && (
+        <div className="fixed top-[5rem] right-[5rem] text-[0.75rem] border border-secondary p-[0.75rem] bg-secondary_weak text-white font-bold">
+          {errorStatus?.errorCode} :{errorStatus?.errorMessage}
+        </div>
+      )}
       <SignupInputs
         value={signupInput}
         isMatched={isMatched}

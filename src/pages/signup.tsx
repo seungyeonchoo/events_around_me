@@ -1,5 +1,7 @@
 import SignupTemplate from '@/src/components/auth/signup/SignupTemplate';
+import { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useMutation } from 'react-query';
 import useInput from '../lib/hooks/useInput';
 import ApiService from '../lib/service';
@@ -17,6 +19,7 @@ const API = new ApiService();
 
 const Signup = () => {
   const router = useRouter();
+  const [errorStatus, setErrorCode] = useState<{ errorCode: number; errorMessage: string }>();
   const {
     input: signupInput,
     handleInput: handleSignupInput,
@@ -29,12 +32,19 @@ const Signup = () => {
     return res?.length === 0;
   };
 
-  const { mutate } = useMutation(() => API.post('/users', signupInput), {
-    onSuccess: async () => {
+  const { mutate, isError } = useMutation(() => API.post('/users', signupInput), {
+    onSuccess: () => {
       resetInput();
       router.push('/');
     },
+    onError: (error: AxiosError) => {
+      const errorCode = error?.response?.status as number;
+      const errorMessage = error?.response?.data as string;
+      setErrorCode({ errorCode, errorMessage });
+    },
   });
+
+  if (isError) console.log(errorStatus);
 
   return (
     <>
@@ -45,6 +55,8 @@ const Signup = () => {
           handleSignup={mutate}
           duplicationCheck={fetchUsers}
           setSignupInput={setInput}
+          isError={isError}
+          errorStatus={errorStatus}
         />
       </main>
     </>

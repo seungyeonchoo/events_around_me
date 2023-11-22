@@ -17,7 +17,7 @@ const CurrTime = () => {
       <Text text_tag="p" size="sm" bold color="default">
         {time.month}월 {time.date}일 {time.day}요일
       </Text>
-      <p className="font-bold text-[1.9rem] w-full text-yellow-300 text-center">
+      <p className="font-bold text-[1.75rem] w-full text-yellow-300 text-center">
         {time.hour}시 {time.minutes}분
       </p>
     </section>

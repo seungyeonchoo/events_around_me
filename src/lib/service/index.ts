@@ -1,7 +1,5 @@
 import instance from './http';
 
-const BASE_URL = 'http://localhost:3000';
-
 interface Api {
   // eslint-disable-next-line no-unused-vars
   get: (url: string, params?: object) => Promise<any>;
@@ -37,12 +35,3 @@ class ApiService implements Api {
 }
 
 export default ApiService;
-
-export const getFetchedData = async (url: string, params?: { [key: string]: string }) => {
-  const qs = new URLSearchParams(params).toString();
-  const res = await fetch(`${BASE_URL}${url}?${qs}`);
-
-  console.log(qs);
-
-  return res.json();
-};

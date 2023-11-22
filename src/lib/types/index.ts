@@ -56,7 +56,6 @@ export interface IHabit {
   description: string;
   userId: number;
   daily_status: boolean[];
-  // daily_status: IDailyStatus[];
 }
 
 export interface IDailyStatus {
