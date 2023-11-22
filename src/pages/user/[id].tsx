@@ -23,7 +23,7 @@ const User = ({ userID }: any) => {
   const token = isRendered ? sessionStorage.getItem('access_Token') : null;
   const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
   const API = new ApiService();
-  const { pathname, push } = useRouter();
+  const router = useRouter();
   const queryClient = useQueryClient();
 
   const initialHabit = {
@@ -49,8 +49,8 @@ const User = ({ userID }: any) => {
   );
 
   useEffect(() => {
-    if (!token) push('/');
-    if (+userID !== id) push(`/user/${id}`);
+    if (!token) router.push('/');
+    if (+userID !== id) router.push(`/user/${id}`);
   }, [token]);
 
   const { mutate } = useMutation(

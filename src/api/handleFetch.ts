@@ -3,9 +3,3 @@ const handler = async (req: any, res: any) => {
 };
 
 export default handler;
-
-// {
-//     url : string;
-//     method : string;
-//     input : User | Habit
-// }
