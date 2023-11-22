@@ -17,7 +17,7 @@ const DiaryNoteButtons = ({
     "
     >
       <button className="px-[0.1rem] mx-[0.5rem]" onClick={handleDeleteDiary}>
-        초기화
+        삭제
       </button>
       <button
         className="px-[0.1rem] mx-[0.5rem]"

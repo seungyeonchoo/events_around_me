@@ -13,6 +13,7 @@ interface DiaryNoteProps {
   handlePost: () => void;
   handlePatch: () => void;
   handleDelete: () => void;
+  handleInit: () => void;
 }
 
 const DiaryNote = ({
@@ -24,6 +25,7 @@ const DiaryNote = ({
   handlePost,
   diary,
   handleDiary,
+  handleInit,
 }: DiaryNoteProps) => {
   const [year, month, date, day] = currDate.split(' ');
 
@@ -45,7 +47,7 @@ const DiaryNote = ({
         handleBackgroundColor={handleDiary}
         handleEditToggle={handleEditToggle}
         handlePostDiary={diary.id ? handlePatch : handlePost}
-        handleDeleteDiary={handleDelete}
+        handleDeleteDiary={diary.id ? handleDelete : handleInit}
       />
     </section>
   );

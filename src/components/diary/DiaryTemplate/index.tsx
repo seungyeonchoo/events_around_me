@@ -53,6 +53,10 @@ const DiaryTemplate = ({ currDate, handleCurrentDate, diaries, userID }: DiaryTe
     },
   });
 
+  const handleInit = () => {
+    setInput(initialDiaryInput);
+  };
+
   useEffect(() => {
     API.get('diaries', { userId: userID, date: currDate })
       .then(diary => {
@@ -82,6 +86,7 @@ const DiaryTemplate = ({ currDate, handleCurrentDate, diaries, userID }: DiaryTe
         currDate={currDate}
         editToggle={editToggle}
         handleEditToggle={handleEditToggle}
+        handleInit={handleInit}
       />
     </section>
   );
