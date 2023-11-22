@@ -23,8 +23,8 @@ const Diary = ({ userID }: any) => {
   const { year, month, date, day } = getTime();
   const router = useRouter();
   const isRendered = typeof window !== 'undefined';
-  const token = isRendered ? sessionStorage.getItem('access_Token') : null;
-  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
+  const token = isRendered ? localStorage.getItem('access_Token') : null;
+  const id = isRendered ? JSON.parse(localStorage.getItem('user') as string)?.id : null;
   const initialDate = `${year}년 ${month}월 ${date}일 ${day}요일`;
 
   const { data: diaryData } = useQuery(

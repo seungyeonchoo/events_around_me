@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 const Nav = () => {
   const isRendered = typeof window !== 'undefined';
-  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
+  const id = isRendered ? JSON.parse(localStorage.getItem('user') as string)?.id : null;
   const { push, pathname } = useRouter();
   const handleToHabit = () => {
     push(`/user/${id}`);
@@ -14,7 +14,7 @@ const Nav = () => {
     push(`/diary/${id}`);
   };
   const handleLogout = () => {
-    sessionStorage.clear();
+    localStorage.clear();
     push('/');
   };
   return (

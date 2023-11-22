@@ -15,22 +15,22 @@ const API = new ApiService();
 
 const SignIn = () => {
   const isRendered = typeof window !== 'undefined';
-  const token = isRendered ? sessionStorage.getItem('access_Token') : null;
-  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
-  const { pathname, push } = useRouter();
+  const token = isRendered ? localStorage.getItem('access_Token') : null;
+  const id = isRendered ? JSON.parse(localStorage.getItem('user') as string)?.id : null;
+  const router = useRouter();
   const [errorStatus, setErrorStatus] = useState(0);
   const { input: signinInput, handleInput: handleSigninInput, setInput } = useInput(initialSignin);
 
   const { mutate, isError } = useMutation(() => API.post('/signin', signinInput), {
     onSuccess: user => {
-      sessionStorage.setItem('access_Token', user.data?.accessToken);
-      sessionStorage.setItem('user', JSON.stringify(user.data?.user));
+      localStorage.setItem('access_Token', user.data?.accessToken);
+      localStorage.setItem('user', JSON.stringify(user.data?.user));
 
       const userId = user.data?.user.id;
 
       console.log(userId);
 
-      if (userId !== undefined) push(`/user/${userId}`);
+      if (userId !== undefined) router.push(`/user/${userId}`);
     },
     onError: (error: AxiosError) => {
       setErrorStatus(error.response?.status as number);
@@ -39,7 +39,7 @@ const SignIn = () => {
   });
 
   useEffect(() => {
-    if (token) push(`/user/${id}`);
+    if (token) router.push(`/user/${id}`);
   }, []);
 
   return (

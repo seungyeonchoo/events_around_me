@@ -18,7 +18,7 @@ interface DiaryTemplateProps {
 const DiaryTemplate = ({ currDate, handleCurrentDate, diaries, userID }: DiaryTemplateProps) => {
   const API = new ApiService();
   const isRendered = typeof window !== 'undefined';
-  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string).id : null;
+  const id = isRendered ? JSON.parse(localStorage.getItem('user') as string).id : null;
   const { toggle: editToggle, handleToggle: handleEditToggle, setToggle } = useToggle();
 
   const queryClient = useQueryClient();

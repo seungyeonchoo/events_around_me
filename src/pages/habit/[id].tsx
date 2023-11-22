@@ -21,8 +21,8 @@ const Habit = ({ habitId }: any) => {
   const router = useRouter();
   const queryClient = useQueryClient();
   const isRendered = typeof window !== 'undefined';
-  const token = isRendered ? sessionStorage.getItem('access_Token') : null;
-  const id = isRendered ? JSON.parse(sessionStorage.getItem('user') as string)?.id : null;
+  const token = isRendered ? localStorage.getItem('access_Token') : null;
+  const id = isRendered ? JSON.parse(localStorage.getItem('user') as string)?.id : null;
 
   const { isLoading, data, isError } = useQuery(
     ['habit', { id: habitId }],
